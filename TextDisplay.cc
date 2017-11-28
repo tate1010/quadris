@@ -5,8 +5,6 @@ using namespace std;
 
 
 
-
-
 TextDisplay::TextDisplay(){
 theDisplay =  vector <vector <char>> (18,vector<char>(15, 'P'));
 
@@ -36,18 +34,14 @@ out << "-";
 }
 out << std::endl;
 //grid here
-
 for (int row = 3; row < 18; ++row){
 for (int col = 0; col < 11; ++ col){
+
 out << td.theDisplay[row][col];
 
 }
 out << endl;
 }
-
-
-
-
 
 //
 for(int divider= 1 ; divider <= dividerlength; ++divider){
@@ -60,4 +54,3 @@ out << "Next:" << std::endl;
 
 return out;
 }
-

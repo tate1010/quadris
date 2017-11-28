@@ -1,14 +1,13 @@
 #include <iostream>
-#include "TextDisplay.cc"
 
+#include "grid.cc"
 
 
 int main(){
 
 
 
-TextDisplay *td = new TextDisplay();
-td->setRC(10,10,'N');
-std::cout << *td;
+Grid *g = new Grid();
 
+g->display();
 }
