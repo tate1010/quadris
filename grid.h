@@ -15,6 +15,7 @@ public:
    Grid();
 
    void display();
+   char getBlock(int r, int c);
 
 };
 #endif

@@ -8,3 +8,10 @@ void Cell::setPiece(char b){
 block  = b;
 
 }
+
+
+char Cell::getBlock(){
+
+return block;
+
+}

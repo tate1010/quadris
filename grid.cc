@@ -13,7 +13,7 @@ Grid::Grid(){
   for (size_t i = 0; i < 18; ++i){
       for (size_t j = 0; j < 11 ; ++j){
              theGrid[i].emplace_back(Cell(i,j));
-             
+
      //attach
 
       }
@@ -25,6 +25,13 @@ td = new TextDisplay();
 
 }
 
+
+char Grid::getBlock(int r, int c){
+
+  return theGrid[r][c].getBlock();
+
+
+}
 
 
 void Grid::display(){
