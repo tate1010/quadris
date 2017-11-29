@@ -6,7 +6,7 @@
 #include "TextDisplay.h"
 
 class Grid{
-  std::vector<std::vector<char>> theGrid;
+  std::vector<std::vector<Cell>> theGrid;
   TextDisplay *td = nullptr;
   bool textonlydisplay = true;
   //to  do
