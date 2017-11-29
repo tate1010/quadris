@@ -1,7 +1,7 @@
 CXX = g++
 CXXFLAGS = -std=c++11 -Wall -MMD -Werror=vla
 EXEC = a4q5
-OBJECTS = main.o cell.o grid.o TextDisplay.o
+OBJECTS = main.o interpreter.o
 DEPENDS = ${OBJECTS:.o=.d}
 
 ${EXEC}: ${OBJECTS}

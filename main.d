@@ -1,1 +1,1 @@
-main.o: main.cc grid.h TextDisplay.h
+main.o: main.cc interpreter.h

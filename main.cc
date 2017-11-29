@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <ctype.h>
+#include "interpreter.h"
 using namespace std;
 /*  #include <iostream>
   #include "grid.h"
@@ -91,7 +92,7 @@ trie_insert(root->children[letter],newString);
 
 
 int main(){
-
+interpreter run;
 prefix_node *root = new prefix_node;
 
 trie_insert(root,"left");
@@ -119,9 +120,18 @@ while (isdigit(command[letter])){
 
 string mul(command.begin(), command.begin()+letter);
 string interp(command.begin()+letter,command.end());
-cout << mul << endl;
-cout << trie_search(root,interp);
 
+interp = trie_search(root,interp);
 
+if (interp == "restart" || interp == "hint" || interp == "norandom" || interp == "random"){
+run.call(interp);
+}
+else{
+for (int i = 0 ; i < stoi(mul) ; ++i){
+//do more shit
+run.call(interp);
+
+}
+}
 }
 }
