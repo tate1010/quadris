@@ -1,15 +1,14 @@
-#include <iostream>
+  #include <iostream>
+  #include "grid.h"
+  using namespace std;
 
-#include "grid.cc"
-
-
-int main(){
-
+  int main(){
 
 
-Grid *g = new Grid();
-g->setPiece(10,10,'r');
-cout << *g;
-g->clear(10);
-cout << *g;
-}
+
+  Grid *g = new Grid();
+  g->setPiece(10,10,'r');
+  cout << *g;
+  g->clear(10);
+  cout << *g;
+  }

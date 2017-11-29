@@ -2,8 +2,8 @@
 #include <vector>
 #include <memory>
 #include "grid.h"
-#include "TextDisplay.cc"
-#include "cell.cc"
+#include "TextDisplay.h"
+#include "cell.h"
 
 Grid::Grid(){
 
@@ -80,7 +80,7 @@ for (int col = 0; col < 11; ++ col){
 out << grd.getBlock(row,col);
 
 }
-out << endl;
+out << std::endl;
 }
 
 //
