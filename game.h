@@ -6,9 +6,9 @@
 #include "grid.h"
 
 class Game{
-Grid *g;
+    Grid *g;
 public:
-   Game();
-
+    Game();
+    
 };
 #endif

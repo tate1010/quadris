@@ -4,8 +4,8 @@
 #include "state.h"
 
 struct Info {
-  size_t row, col;
-  Colour colour;
+    size_t row, col;
+    Colour colour;
 };
 
 #endif
