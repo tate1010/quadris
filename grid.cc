@@ -81,6 +81,8 @@ return hitbox;
 
 
 
+
+
 std::ostream& operator<<(std::ostream &out,  Grid &grd){
 int dividerlength = 11;
 out << "level" << std::endl;
