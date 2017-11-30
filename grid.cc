@@ -61,6 +61,24 @@ std::cout << *td;
 
 
 }
+std::vector<int> Grid::Hitbox(){
+std::vector<int> hitbox(11,0);
+
+for (int C= 0; C < 11 ; ++C){
+  for (int R = 17; R >= 0 ; --R){
+
+
+    if (theGrid[R][C].Filled()){
+        hitbox[C] = R;
+    }
+
+}
+}
+
+return hitbox;
+}
+
+
 
 
 std::ostream& operator<<(std::ostream &out,  Grid &grd){

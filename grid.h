@@ -20,6 +20,7 @@ public:
    void clear(int line ); //CLEAR THE LINE Count FRom the top
    //line start from 0 to 15 (+3)
    //
+   std::vector<int> Hitbox();
    friend std::ostream &operator<<(std::ostream &out,  Grid &grd);
 };
 #endif

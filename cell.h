@@ -15,6 +15,7 @@ class Cell{
 
   void setPiece(char block);    // Place a piece of given colour here.
   char getBlock();
+  bool Filled();
 //  void notify(Subject<Info, State> &whoFrom) override;// My neighbours will call this
                                                 // when they've changed state
   //Info getInfo() const override;
