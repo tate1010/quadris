@@ -94,7 +94,11 @@ trie_insert(root,"random");
 trie_insert(root,"sequence");
 trie_insert(root,"restart");
 trie_insert(root,"hint");
+////
 
+
+
+///
 
 //cout << trie_search(root, "lef");
 string command;

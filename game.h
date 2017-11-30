@@ -3,12 +3,12 @@
 #include <iostream>
 #include <vector>
 #include <cstddef>
-#include "TextDisplay.h"
+#include "grid.h"
 
-class Grid{
-
+class Game{
+Grid *g;
 public:
-   Grid();
+   Game();
 
 };
 #endif

@@ -9,6 +9,7 @@ class interpreter{
   //to  do
   //GraphicDisplay
 public:
+  interpreter();
    void left();
    void right();
    void down();

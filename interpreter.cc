@@ -1,6 +1,12 @@
 #include "interpreter.h"
+#include "game.h"
 #include <iostream>
+interpreter::interpreter(){
 
+Game *livegame = new Game();
+
+
+}
 void interpreter::call(std::string command){
 
 if( command == "left"){
