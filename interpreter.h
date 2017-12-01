@@ -3,9 +3,9 @@
 #include <iostream>
 #include <vector>
 #include <cstddef>
-
+#include "game.h"
 class interpreter{
-    
+    Game *livegame;
     //to  do
     //GraphicDisplay
 public:

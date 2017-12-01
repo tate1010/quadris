@@ -3,13 +3,11 @@
 #include <iostream>
 interpreter::interpreter(){
 
-    Game *livegame = new Game();
-    std::cout << *livegame;
-    livegame->S();
+    livegame = new Game();
     std::cout << *livegame;
 
-    livegame->right();
-    std::cout << *livegame;
+
+
 }
 void interpreter::call(std::string command){
 
@@ -17,7 +15,8 @@ void interpreter::call(std::string command){
 
     }
     else if( command == "right"){
-
+      livegame->right();
+      std::cout << *livegame;
 
     }
     else if( command == "down"){
@@ -58,6 +57,11 @@ void interpreter::call(std::string command){
     }
     else if (command == "norandom"){
 
+
+    }
+    else if (command == "S"){
+      livegame->S();
+      std::cout << *livegame;
 
     }
 
