@@ -36,7 +36,7 @@ char Grid::getBlock(int r, int c){
 
 void Grid::clear(int line){
 
-    for (int i = line+2; i > 0; --i){
+    for (int i = line; i > 0; --i){
 
         for (int col = 0; col < 11; ++col){
             theGrid[i][col].setPiece(theGrid[i-1][col].getBlock());
@@ -47,6 +47,11 @@ void Grid::clear(int line){
 
     for (int cell = 0; cell < 11; ++cell){
         theGrid[0][cell].setPiece(' ');
+
+    }
+    for(auto &cell : hitbox){
+      --cell;
+
 
     }
 }
@@ -62,7 +67,7 @@ void Grid::Check(){
 
 
     }
-    if (full)       clear(row);
+    if (full) clear(row);
     full = true;
 
   }
@@ -71,7 +76,13 @@ void Grid::Check(){
 
 void Grid::setPiece(int r, int c, char piece){
 
+
     theGrid[r][c].setPiece(piece);
+    if (piece ==' '){
+
+        theGrid[r][c].unfill();
+
+    }
 }
 void Grid::display(){
 

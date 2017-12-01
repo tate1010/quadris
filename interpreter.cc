@@ -31,23 +31,25 @@ void interpreter::call(std::string command){
         std::cout << *livegame;
     }
     else if( command == "clockwise"){
-
+      livegame->rotate_clock();
+      std::cout << *livegame;
 
     }
     else if( command == "counterclockwise"){
 
-
+  livegame->rotate_counterclock();
+        std::cout << *livegame;
     }
     else if( command == "levelup"){
-
+      livegame->levelup();
 
     }
     else if( command == "leveldown"){
-
+  livegame->leveldown();
 
     }
     else if( command == "restart"){
-
+      //todo
 
     }
     else if( command == "sequence"){

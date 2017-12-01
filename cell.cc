@@ -17,7 +17,11 @@ char Cell::getBlock(){
 return block;
 
 }
+void Cell::unfill(){
+filled = false;
 
+
+}
 bool Cell::Filled(){
 return filled;
 

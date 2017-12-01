@@ -26,7 +26,8 @@ public:
     void levelup();
     void leveldown();
     void NextPiece();
-
+    void rotate_clock();
+    void rotate_counterclock();
      //replace current with next Piece
     //ToDO
     //void rotate_clock();

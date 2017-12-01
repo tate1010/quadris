@@ -300,7 +300,46 @@ else
 return out;
 
 }
+void Game::rotate_clock(){
 
+  for (auto &row: CurrentPiece->getlayout()){
+  for (auto &col : row){
+
+  g->setPiece(col.getRow(),col.getCol(),' ');
+  }
+  }
+
+  CurrentPiece -> rotate_clock();
+
+  for (auto &row: CurrentPiece->getlayout()){
+  for (auto &col : row){
+
+  g->setPiece(col.getRow(),col.getCol(),col.getType());
+  }
+  }
+
+
+}
+
+void Game::rotate_counterclock(){
+
+  for (auto &row: CurrentPiece->getlayout()){
+  for (auto &col : row){
+
+  g->setPiece(col.getRow(),col.getCol(),' ');
+  }
+  }
+
+  CurrentPiece -> rotate_counterclock();
+
+  for (auto &row: CurrentPiece->getlayout()){
+  for (auto &col : row){
+
+  g->setPiece(col.getRow(),col.getCol(),col.getType());
+  }
+  }
+
+}
 void Game::drop(){
   int amount = 15 ;
 
