@@ -1,5 +1,5 @@
 #include "game.h"
-#include "squarepiece.h"
+#include "Opiece.h"
 #include <iostream>
 Game::Game(){
 
@@ -70,7 +70,7 @@ return out;
 
 
 void Game::S(){
-CurrentPiece = new squarepiece();
+CurrentPiece = new Opiece();
 for (auto &row: CurrentPiece->getlayout()){
 for (auto &col : row){
 
