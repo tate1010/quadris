@@ -17,7 +17,15 @@ public:
 
     void left();
     void right();
+    void down();
+    void I();
+    void T();
+    void L();
+    void Z();
     void S();
+    void O();
+    void J();
+
     friend  std::ostream& operator<<(std::ostream &out,  Game &game);
 
 };

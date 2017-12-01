@@ -1,5 +1,11 @@
 #include "game.h"
 #include "Opiece.h"
+#include "Ipiece.h"
+#include "Tpiece.h"
+#include "Lpiece.h"
+#include "Zpiece.h"
+#include "Spiece.h"
+#include "Jpiece.h"
 #include <iostream>
 Game::Game(){
 
@@ -12,12 +18,22 @@ Game::Game(){
 
 
 void Game::left(){
-for (auto &row : CurrentPiece ->getlayout()){
-for (auto &col : row){
+  for (auto &row: CurrentPiece->getlayout()){
+  for (auto &col : row){
 
-std::cout<< col.getCol();
-}
-}
+  g->setPiece(col.getRow(),col.getCol(),' ');
+  }
+  }
+
+  CurrentPiece -> move_left();
+
+  for (auto &row: CurrentPiece->getlayout()){
+  for (auto &col : row){
+
+  g->setPiece(col.getRow(),col.getCol(),col.getType());
+  }
+  }
+
 }
 
 void Game::right(){
@@ -33,13 +49,31 @@ void Game::right(){
 
   for (auto &row: CurrentPiece->getlayout()){
   for (auto &col : row){
-std::cout << col.getCol();
+
+  g->setPiece(col.getRow(),col.getCol(),col.getType());
+  }
+  }
+}
+void Game::down(){
+  for (auto &row: CurrentPiece->getlayout()){
+  for (auto &col : row){
+
+  g->setPiece(col.getRow(),col.getCol(),' ');
+  }
+  }
+
+  CurrentPiece -> softdrop();
+
+  for (auto &row: CurrentPiece->getlayout()){
+  for (auto &col : row){
+
   g->setPiece(col.getRow(),col.getCol(),col.getType());
   }
   }
 
 
 }
+
 
 std::ostream& operator<<(std::ostream &out,  Game &game){
 
@@ -70,7 +104,79 @@ return out;
 
 
 void Game::S(){
+CurrentPiece = new Spiece();
+
+for (auto &row: CurrentPiece->getlayout()){
+for (auto &col : row){
+
+g->setPiece(col.getRow(),col.getCol(),col.getType());
+}
+}
+
+
+}
+void Game::T(){
+CurrentPiece = new Tpiece();
+
+for (auto &row: CurrentPiece->getlayout()){
+for (auto &col : row){
+
+g->setPiece(col.getRow(),col.getCol(),col.getType());
+}
+}
+
+
+}
+void Game::I(){
+CurrentPiece = new Ipiece();
+
+for (auto &row: CurrentPiece->getlayout()){
+for (auto &col : row){
+
+g->setPiece(col.getRow(),col.getCol(),col.getType());
+}
+}
+
+
+}
+void Game::L(){
+CurrentPiece = new Lpiece();
+
+for (auto &row: CurrentPiece->getlayout()){
+for (auto &col : row){
+
+g->setPiece(col.getRow(),col.getCol(),col.getType());
+}
+}
+
+
+}
+void Game::J(){
+CurrentPiece = new Jpiece();
+
+for (auto &row: CurrentPiece->getlayout()){
+for (auto &col : row){
+
+g->setPiece(col.getRow(),col.getCol(),col.getType());
+}
+}
+
+
+}
+void Game::O(){
 CurrentPiece = new Opiece();
+
+for (auto &row: CurrentPiece->getlayout()){
+for (auto &col : row){
+
+g->setPiece(col.getRow(),col.getCol(),col.getType());
+}
+}
+
+
+}
+void Game::Z(){
+CurrentPiece = new Zpiece();
 
 for (auto &row: CurrentPiece->getlayout()){
 for (auto &col : row){

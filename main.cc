@@ -107,6 +107,12 @@ int main(){
     trie_insert(root,"restart");
     trie_insert(root,"hint");
     trie_insert(root,"s");
+    trie_insert(root,"z");
+    trie_insert(root,"l");
+    trie_insert(root,"j");
+    trie_insert(root,"i");
+    trie_insert(root,"o");
+    trie_insert(root,"t");
     //
 
 //why?
@@ -125,7 +131,7 @@ int main(){
         string interp(command.begin()+letter,command.end());
 
         interp = trie_search(root,interp);
-        cout << root->count;
+
         if (interp == "restart" || interp == "hint" || interp == "norandom" || interp == "random"){
             run.call(interp);
         }

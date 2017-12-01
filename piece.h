@@ -31,9 +31,7 @@ public:
     void move_right();
     void rotate_counterclock();
     void rotate_clock();
-    int getleftcol();
-    int getrightcol();
-    int getBottom();
+
     std::vector <std::vector <block>> getlayout();
     friend std::ostream &operator<<(std::ostream &out,  piece &p);
 };
