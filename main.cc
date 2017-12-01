@@ -107,7 +107,7 @@ int main(){
     trie_insert(root,"S");
     ////
 
-
+//why?
 
     ///
 
