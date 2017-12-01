@@ -30,7 +30,7 @@ int main ()
     Spiece S;
     Jpiece J;
     Ipiece I;
-    
+
     cout << O << endl;
     cout << L << endl;
     cout << T << endl;
@@ -38,7 +38,7 @@ int main ()
     cout << S << endl;
     cout << J << endl;
     cout << I << endl;
-    
+
     O.rotate_clock();
     L.rotate_clock();
     T.rotate_clock();
@@ -46,9 +46,9 @@ int main ()
     S.rotate_clock();
     J.rotate_clock();
     I.rotate_clock();
-    
+
     cout << endl;
-    
+
     cout << O << endl;
     cout << L << endl;
     cout << T << endl;
@@ -56,7 +56,7 @@ int main ()
     cout << S << endl;
     cout << J << endl;
     cout << I << endl;
-    
+
     O.move_left();
     L.move_left();
     T.move_left();
@@ -64,7 +64,7 @@ int main ()
     S.move_left();
     J.move_left();
     I.move_left();
-    
+
     cout << O << endl;
     cout << L << endl;
     cout << T << endl;
@@ -72,7 +72,7 @@ int main ()
     cout << S << endl;
     cout << J << endl;
     cout << I << endl;
-    
+
 }
 
 
