@@ -71,6 +71,7 @@ return out;
 
 void Game::S(){
 CurrentPiece = new Opiece();
+
 for (auto &row: CurrentPiece->getlayout()){
 for (auto &col : row){
 

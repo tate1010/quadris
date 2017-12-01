@@ -25,14 +25,14 @@ struct prefix_node{
 
 
 string trie_search(prefix_node* root , std::string word){
-
+    if(!root) return "";
 
     if (word == "") {
 
-        if (root -> count == 0 )return "";
 
 
-        else if (root->count == 1){
+
+         if (root->count == 1){
 
             for (int i = 0;   i < 26; ++i){
 
@@ -44,16 +44,18 @@ string trie_search(prefix_node* root , std::string word){
             }
         }
 
+        else return "";
+
 
 
     }
+
+
     int letter = word[0] - 'a';
     string newString(word.begin()+1, word.end());
 
-    if(!root) return "";
 
-
-    else if (!root -> children[letter]) return "";
+     if (!root -> children[letter]) return "";
 
 
     else {
@@ -64,10 +66,11 @@ string trie_search(prefix_node* root , std::string word){
 
 void trie_insert(prefix_node* root, string word){
     if (word != ""){
+        std::transform(word.begin(),word.end(),word.begin(), ::tolower);
         char letter = word[0] - 'a';
         string newString(word.begin()+1,word.end());
         if (root -> children[letter]){
-
+            root->children[letter]->count++;
             trie_insert(root->children[letter],newString);
 
         }
@@ -101,10 +104,11 @@ int main(){
     trie_insert(root,"drop");
     trie_insert(root,"norandom");
     trie_insert(root,"random");
+    trie_insert(root,"s");
     trie_insert(root,"sequence");
     trie_insert(root,"restart");
     trie_insert(root,"hint");
-    trie_insert(root,"S");
+
     ////
 
 //why?
@@ -123,7 +127,7 @@ int main(){
         string interp(command.begin()+letter,command.end());
 
         interp = trie_search(root,interp);
-
+        cout << interp;
         if (interp == "restart" || interp == "hint" || interp == "norandom" || interp == "random"){
             run.call(interp);
         }

@@ -59,7 +59,7 @@ void interpreter::call(std::string command){
 
 
     }
-    else if (command == "S"){
+    else if (command == "s"){
       livegame->S();
       std::cout << *livegame;
 
