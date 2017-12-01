@@ -17,7 +17,7 @@
 using namespace std;
 
 struct prefix_node{
-    prefix_node* children[26];
+    prefix_node* children[26] = {};
     int count = 0;
 
 };
@@ -66,6 +66,7 @@ string trie_search(prefix_node* root , std::string word){
 
 void trie_insert(prefix_node* root, string word){
     if (word != ""){
+
         std::transform(word.begin(),word.end(),word.begin(), ::tolower);
         char letter = word[0] - 'a';
         string newString(word.begin()+1,word.end());
@@ -74,7 +75,7 @@ void trie_insert(prefix_node* root, string word){
             trie_insert(root->children[letter],newString);
 
         }
-        else {
+        if(root->children[letter]) {
             root->count ++;
             prefix_node* newnode = new prefix_node;
             root->children[letter] = newnode;
