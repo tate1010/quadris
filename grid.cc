@@ -94,5 +94,5 @@ std::ostream& operator<<(std::ostream &out,  Grid &grd){
         }
         out << std::endl;
     }
-
+return out;
 }
