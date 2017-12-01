@@ -1,7 +1,9 @@
 #include "cell.h"
 
 
-Cell::Cell(size_t r,size_t c):r(r),c(c){};
+Cell::Cell(size_t r,size_t c):r(r),c(c){
+  block = ' ';
+};
 
 void Cell::setPiece(char b){
 
