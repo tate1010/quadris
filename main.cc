@@ -5,13 +5,80 @@
 #include "interpreter.h"
 #include "block.h"
 #include "piece.h"
+#include "Opiece.h"
 #include "Lpiece.h"
+#include "Tpiece.h"
+#include "Zpiece.h"
+#include "Spiece.h"
+#include "Jpiece.h"
+#include "Ipiece.h"
+
 
 using namespace std;
 
+<<<<<<< HEAD
 
 
 struct prefix_node{
+=======
+int main ()
+{
+    Opiece O;
+    Lpiece L;
+    Tpiece T;
+    Zpiece Z;
+    Spiece S;
+    Jpiece J;
+    Ipiece I;
+    
+    cout << O << endl;
+    cout << L << endl;
+    cout << T << endl;
+    cout << Z << endl;
+    cout << S << endl;
+    cout << J << endl;
+    cout << I << endl;
+    
+    O.rotate_clock();
+    L.rotate_clock();
+    T.rotate_clock();
+    Z.rotate_clock();
+    S.rotate_clock();
+    J.rotate_clock();
+    I.rotate_clock();
+    
+    cout << endl;
+    
+    cout << O << endl;
+    cout << L << endl;
+    cout << T << endl;
+    cout << Z << endl;
+    cout << S << endl;
+    cout << J << endl;
+    cout << I << endl;
+    
+    O.move_left();
+    L.move_left();
+    T.move_left();
+    Z.move_left();
+    S.move_left();
+    J.move_left();
+    I.move_left();
+    
+    cout << O << endl;
+    cout << L << endl;
+    cout << T << endl;
+    cout << Z << endl;
+    cout << S << endl;
+    cout << J << endl;
+    cout << I << endl;
+    
+}
+
+
+
+/*struct prefix_node{
+>>>>>>> b38bd281bd5854fa787228d1cd7c8ff609480f2a
     prefix_node* children[26];
     int count = 0;
 
