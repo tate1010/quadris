@@ -25,7 +25,7 @@ void Game::right(){
   for (auto &row: CurrentPiece->getlayout()){
   for (auto &col : row){
 
-  g->setPiece(col.getCol(),col.getRow(),' ');
+  g->setPiece(col.getRow(),col.getCol(),' ');
   }
   }
 
@@ -34,7 +34,7 @@ void Game::right(){
   for (auto &row: CurrentPiece->getlayout()){
   for (auto &col : row){
 std::cout << col.getCol();
-  g->setPiece(col.getCol(),col.getRow(),col.getType());
+  g->setPiece(col.getRow(),col.getCol(),col.getType());
   }
   }
 
@@ -74,7 +74,7 @@ CurrentPiece = new squarepiece();
 for (auto &row: CurrentPiece->getlayout()){
 for (auto &col : row){
 
-g->setPiece(col.getCol(),col.getRow(),col.getType());
+g->setPiece(col.getRow(),col.getCol(),col.getType());
 }
 }
 
