@@ -11,13 +11,15 @@
 
 #include "piece.h"
 
-class squarepiece : public piece
+class Opiece : public piece
 {
+    int initRow = 3;
+    int initCol = 5; // should be grid.size/2
     int rowsize = 2;
     int colsize = 2;
     
 public:
-    squarepiece();
+    Opiece();
 };
 
 #endif /* squarepiece_h */

@@ -5,7 +5,7 @@
 //  Created by Aurora Dai on 2017-11-27.
 //  Copyright © 2017 Aurora Dai. All rights reserved.
 //
-
+using namespace std;
 #include "piece.h"
 
 piece::piece(size_t pieceNumRow, size_t pieceNumCol): layout(pieceNumRow, vector<block>(pieceNumCol)) {}
@@ -41,20 +41,31 @@ void piece::move_right()
 
 void piece::rotate_counterclock()
 {
-    size_t numrow = layout.size();
-    size_t numcol = layout[0].size();
-
+    int numrow = (int)layout.size();
+    int numcol = (int)layout[0].size();
     
-    piece newLayout = piece (layout[0].size(), layout.size());
+    int newNumRow = numcol;
+    int newNumCol = numrow;
+    
+    int topLeftRow = layout[0][0].getRow();
+    int topLeftCol = layout[0][0].getCol();
+    
+    piece newLayout = piece (newNumRow, newNumCol);
 
+    for (int i = 0; i < numrow; i++)
+    {
+        for (int j = 0; j < numcol; j++)
+        {
+            newLayout.layout[newNumRow-j-1][i].changeBlockRow(topLeftRow+numrow-1-j);
+            newLayout.layout[newNumRow-j-1][i].changeBlockCol(topLeftCol+i);
+        }
+    }
     
     for (int i = 0; i < numcol; i++)
     {
         for (int j = 0; j < numrow; j++)
         {
             newLayout.layout[i][j].changeBlockType(layout[j][numcol-i-1].getType());
-            newLayout.layout[i][j].changeBlockCol(layout[j][numcol-i-1].getCol());
-            newLayout.layout[i][j].changeBlockRow(layout[j][numcol-i-1].getRow());
             
         }
     }
@@ -64,14 +75,29 @@ void piece::rotate_counterclock()
 }
 void piece::rotate_clock()
 {
-    size_t numrow = layout.size();
-    size_t numcol = layout[0].size();
+    int numrow = (int)layout.size();
+    int numcol = (int)layout[0].size();
+    
+    int newNumRow = numcol;
+    int newNumCol = numrow;
+    
+    int topLeftRow = layout[0][0].getRow();
+    int topLeftCol = layout[0][0].getCol();
     
     piece newLayout = piece (numcol, numrow);
     
     for (int i = 0; i < numrow; i++)
+    {
         for (int j = 0; j < numcol; j++)
-            newLayout.layout[j][numrow-i-1] = layout[i][j];
+        {
+            newLayout.layout[newNumRow-j-1][i].changeBlockRow(topLeftRow+numrow-1-j);
+            newLayout.layout[newNumRow-j-1][i].changeBlockCol(topLeftCol+i);
+        }
+    }
+    
+    for (int i = 0; i < numrow; i++)
+        for (int j = 0; j < numcol; j++)
+            newLayout.layout[j][numrow-i-1].changeBlockType(layout[i][j].getType());
     
     layout = newLayout.layout;
     

@@ -1,24 +1,24 @@
 //
-//  Lpiece.hpp
+//  Ipiece.hpp
 //  a5_1
 //
 //  Created by Aurora Dai on 2017-11-30.
 //  Copyright © 2017 Aurora Dai. All rights reserved.
 //
 
-#ifndef Lpiece_h
-#define Lpiece_h
-#include "piece.h"
+#ifndef Ipiece_h
+#define Ipiece_h
 
-class Lpiece : public piece
+#include "piece.h"
+class Ipiece : public piece
 {
     int initRow = 3;
     int initCol = 5; // should be grid.size/2
-    int rowsize = 2;
-    int colsize = 3;
+    int rowsize = 1;
+    int colsize = 4;
     
 public:
-    Lpiece();
+    Ipiece();
 };
 
-#endif /* Lpiece_h */
+#endif /* Ipiece_hpp */

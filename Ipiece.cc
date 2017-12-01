@@ -1,13 +1,14 @@
 //
-//  Lpiece.cpp
+//  Ipiece.cpp
 //  a5_1
 //
 //  Created by Aurora Dai on 2017-11-30.
 //  Copyright © 2017 Aurora Dai. All rights reserved.
 //
 
-#include "Lpiece.h"
-Lpiece::Lpiece() : piece(rowsize = 2, colsize = 3)
+#include "Ipiece.h"
+
+Ipiece::Ipiece() : piece(rowsize = 1, colsize = 4)
 {
     for (int i = 0; i < rowsize; i++)
     {
@@ -15,11 +16,7 @@ Lpiece::Lpiece() : piece(rowsize = 2, colsize = 3)
         {
             layout[i][j].changeBlockRow(initRow + i);
             layout[i][j].changeBlockCol(initCol + j);
-            if (i == 0 && (j == 0 || j == 1))
-                layout[i][j].changeBlockType('e');
-            else
-                layout[i][j].changeBlockType('L');
+            layout[i][j].changeBlockType('I');
         }
     }
-    
 }
