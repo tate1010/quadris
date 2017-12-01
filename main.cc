@@ -29,9 +29,6 @@ string trie_search(prefix_node* root , std::string word){
 
     if (word == "") {
 
-
-
-
          if (root->count == 1){
 
             for (int i = 0;   i < 26; ++i){
@@ -75,7 +72,7 @@ void trie_insert(prefix_node* root, string word){
             trie_insert(root->children[letter],newString);
 
         }
-        if(root->children[letter]) {
+       else  {
             root->count ++;
             prefix_node* newnode = new prefix_node;
             root->children[letter] = newnode;
@@ -105,12 +102,12 @@ int main(){
     trie_insert(root,"drop");
     trie_insert(root,"norandom");
     trie_insert(root,"random");
-    trie_insert(root,"s");
+
     trie_insert(root,"sequence");
     trie_insert(root,"restart");
     trie_insert(root,"hint");
-
-    ////
+    trie_insert(root,"s");
+    //
 
 //why?
 
@@ -128,7 +125,7 @@ int main(){
         string interp(command.begin()+letter,command.end());
 
         interp = trie_search(root,interp);
-        cout << interp;
+        cout << root->count;
         if (interp == "restart" || interp == "hint" || interp == "norandom" || interp == "random"){
             run.call(interp);
         }
