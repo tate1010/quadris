@@ -1,4 +1,5 @@
 #include "game.h"
+#include "squarepiece.h"
 #include <iostream>
 Game::Game(){
 
@@ -11,16 +12,33 @@ Game::Game(){
 
 
 void Game::left(){
-if(CurrentPiece->getleftcol() > 0 ){
-CurrentPiece -> move_left();
-}
+for (auto &row : CurrentPiece ->getlayout()){
+for (auto &col : row){
 
+std::cout<< col.getCol();
+}
+}
 }
 
 void Game::right(){
-if (CurrentPiece->getrightcol() < 10){
-CurrentPiece -> move_right();
-}
+
+  for (auto &row: CurrentPiece->getlayout()){
+  for (auto &col : row){
+
+  g->setPiece(col.getCol(),col.getRow(),' ');
+  }
+  }
+
+  CurrentPiece -> move_right();
+
+  for (auto &row: CurrentPiece->getlayout()){
+  for (auto &col : row){
+std::cout << col.getCol();
+  g->setPiece(col.getCol(),col.getRow(),col.getType());
+  }
+  }
+
+
 }
 
 std::ostream& operator<<(std::ostream &out,  Game &game){
@@ -47,5 +65,18 @@ out << "Next:" << std::endl;
 
 
 return out;
+
+}
+
+
+void Game::S(){
+CurrentPiece = new squarepiece();
+for (auto &row: CurrentPiece->getlayout()){
+for (auto &col : row){
+
+g->setPiece(col.getCol(),col.getRow(),col.getType());
+}
+}
+
 
 }

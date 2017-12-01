@@ -107,6 +107,12 @@ int irow = 0;
 
 return irow;
 }
+std::vector <std::vector <block>> piece::getlayout(){
+
+return layout;
+
+}
+
 std::ostream &operator<<(std::ostream &out, piece &p)
 {
     size_t numrow = p.layout.size();

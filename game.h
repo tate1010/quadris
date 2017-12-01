@@ -14,8 +14,10 @@ class Game{
     int hiscore;
 public:
     Game();
+
     void left();
     void right();
+    void S();
     friend  std::ostream& operator<<(std::ostream &out,  Game &game);
 
 };

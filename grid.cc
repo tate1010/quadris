@@ -26,6 +26,7 @@ Grid::Grid(){
 }
 
 
+
 char Grid::getBlock(int r, int c){
 
     return theGrid[r][c].getBlock();
@@ -45,7 +46,7 @@ void Grid::clear(int line){
     }
 
     for (int cell = 0; cell < 11; ++cell){
-        theGrid[0][cell].setPiece('P');
+        theGrid[0][cell].setPiece(' ');
 
     }
 }

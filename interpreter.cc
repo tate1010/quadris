@@ -5,7 +5,11 @@ interpreter::interpreter(){
 
     Game *livegame = new Game();
     std::cout << *livegame;
+    livegame->S();
+    std::cout << *livegame;
 
+    livegame->right();
+    std::cout << *livegame;
 }
 void interpreter::call(std::string command){
 
