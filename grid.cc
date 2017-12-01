@@ -50,6 +50,24 @@ void Grid::clear(int line){
 
     }
 }
+void Grid::Check(){
+
+  for (int row = 0; row < 18; ++row){
+    bool full = true;
+    for (auto &col : theGrid[row]){
+      if (!col.Filled()){
+
+        full = false;
+      }
+
+
+    }
+    if (full)       clear(row);
+    full = true;
+
+  }
+
+}
 
 void Grid::setPiece(int r, int c, char piece){
 

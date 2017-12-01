@@ -55,7 +55,6 @@ return nextPiece;
 
 }
 
-
 void Game::GeneratePiece(){
 //level1
 
@@ -340,6 +339,7 @@ for (auto &a : CurrentPiece->getlayout()){
   }
 }
 }
+g->Check();
 NextPiece();
 }
 void Game::S(){

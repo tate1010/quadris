@@ -17,6 +17,7 @@ public:
     Grid();
 
     void display();
+    void Check();
     void setPiece(int r, int c, char piece);
     char getBlock(int r, int c);
     void clear(int line ); //CLEAR THE LINE Count FRom the top
