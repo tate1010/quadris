@@ -9,15 +9,35 @@
 class Game{
     Grid *g;
     piece *CurrentPiece;
+    char nextPiece;
     int level;
     int score;
     int hiscore;
+    int timer = 0 ; //used in level 4 only
+    long long seed = 0;
 public:
     Game();
 
     void left();
     void right();
     void down();
+    void drop();
+    void GeneratePiece();
+    void levelup();
+    void leveldown();
+    void NextPiece(); //replace current with next Piece
+    //ToDO
+    //void rotate_clock();
+    //void rotate_counterclock();
+
+    //void no random + sequence
+    //void restart. maybe need to do outside
+    //void Hint
+
+
+
+    //for testing here
+    char GetNext();
     void I();
     void T();
     void L();
@@ -25,7 +45,7 @@ public:
     void S();
     void O();
     void J();
-
+    //
     friend  std::ostream& operator<<(std::ostream &out,  Game &game);
 
 };

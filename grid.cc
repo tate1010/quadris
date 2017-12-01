@@ -20,7 +20,7 @@ Grid::Grid(){
     }
 
     td = new TextDisplay();
-
+    hitbox = std::vector<int> (11,17);
 
 
 }
@@ -62,19 +62,7 @@ void Grid::display(){
 
 
 }
-std::vector<int> Grid::Hitbox(){
-    std::vector<int> hitbox(11,0);
-
-    for (int C= 0; C < 11 ; ++C){
-        for (int R = 17; R >= 0 ; --R){
-
-
-            if (theGrid[R][C].Filled()){
-                hitbox[C] = R;
-            }
-
-        }
-    }
+std::vector<int>& Grid::Hitbox(){
 
     return hitbox;
 }

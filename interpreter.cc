@@ -6,7 +6,7 @@ interpreter::interpreter(){
     livegame = new Game();
     std::cout << *livegame;
 
-
+   livegame->GeneratePiece();
 
 }
 void interpreter::call(std::string command){
@@ -24,6 +24,11 @@ void interpreter::call(std::string command){
       livegame->down();
       std::cout << *livegame;
 
+    }
+    else if (command == "drop"){
+
+      livegame->drop();
+        std::cout << *livegame;
     }
     else if( command == "clockwise"){
 
