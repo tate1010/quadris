@@ -35,6 +35,7 @@ public:
     std::vector <std::vector <block>> getlayout();
     char getTypePiece();
     friend std::ostream &operator<<(std::ostream &out,  piece &p);
+    
 };
 
 #endif /* piece_hpp */

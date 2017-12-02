@@ -350,6 +350,11 @@ std::ostream& operator<<(std::ostream &out,  Game &game){
 void Game::rotate_clock(){
     
     char c = CurrentPiece->getTypePiece();
+    int max = (int)std::max(CurrentPiece->getlayout().size(),CurrentPiece->getlayout()[0].size());
+    
+    std::vector<std::vector<char>> vec (max, vector<char>(max));
+    
+    
     
     for (auto &row: CurrentPiece->getlayout()){
         for (auto &col : row){
@@ -373,6 +378,7 @@ void Game::rotate_clock(){
 void Game::rotate_counterclock(){
     
     vector <vector <block>> layout = CurrentPiece->getlayout();
+    
     
     if ((layout[0][0].getCol() > layout.size()))
     {

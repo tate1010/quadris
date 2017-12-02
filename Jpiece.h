@@ -13,7 +13,7 @@
 class Jpiece : public piece
 {
     int initRow = 3;
-    int initCol = 5; // should be grid.size/2
+    int initCol = 0; // should be grid.size/2
     int rowsize = 2;
     int colsize = 3;
     
