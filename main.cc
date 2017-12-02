@@ -16,106 +16,66 @@
 
 using namespace std;
 
-struct prefix_node{
-    prefix_node* children[26] = {};
-    int count = 0;
 
-};
+vector <std::string> library;
 
 
 
-string trie_search(prefix_node* root , std::string word){
-    if(!root) return "";
-
-    if (word == "") {
-
-         if (root->count == 1){
-
-            for (int i = 0;   i < 26; ++i){
-
-                if(root->children[i]){
-
-                    return char('a'+ i) + trie_search(root->children[i],"");
-                }
-
-            }
-        }
-
-        else return "";
-
-
-
-    }
-
-
-    int letter = word[0] - 'a';
-    string newString(word.begin()+1, word.end());
-
-
-     if (!root -> children[letter]) return "";
-
-
-    else {
-
-        return (word[0] + trie_search(root -> children[letter],newString));
-    }
+bool isPrefix(std::string str, std::string pre) {
+  // this function checks if pre is a prefix of str
+  auto res = std::mismatch(pre.begin(), pre.end(), str.begin());
+  return res.first == pre.end();
 }
 
-void trie_insert(prefix_node* root, string word){
-    if (word != ""){
-
-        std::transform(word.begin(),word.end(),word.begin(), ::tolower);
-        char letter = word[0] - 'a';
-        string newString(word.begin()+1,word.end());
-        if (root -> children[letter]){
-            root->children[letter]->count++;
-            trie_insert(root->children[letter],newString);
-
-        }
-       else  {
-            root->count ++;
-            prefix_node* newnode = new prefix_node;
-            root->children[letter] = newnode;
-            trie_insert(root->children[letter],newString);
-
-        }
-    }
+void insert(string word){
+library.push_back(word);
 
 }
 
+string search(string search){
+  string key = "";
+for (auto &word : library)
+{
+if (isPrefix(word,search)){
+if (key == ""){
+key = word;
+}
+else key = "ambigous";
+}
+}
 
 
+return key;
+}
 
 
 
 int main(){
     interpreter run;
-    prefix_node *root = new prefix_node;
 
-    trie_insert(root,"left");
-    trie_insert(root,"right");
-    trie_insert(root,"clockwise");
-    trie_insert(root,"counterclockwise");
-    trie_insert(root,"down");
-    trie_insert(root,"leveldown");
-    trie_insert(root,"levelup");
-    trie_insert(root,"drop");
-    trie_insert(root,"norandom");
-    trie_insert(root,"random");
 
-    trie_insert(root,"sequence");
-    trie_insert(root,"restart");
-    trie_insert(root,"hint");
-    trie_insert(root,"s");
-    trie_insert(root,"z");
-    trie_insert(root,"l");
-    trie_insert(root,"j");
-    trie_insert(root,"i");
-    trie_insert(root,"o");
-    trie_insert(root,"t");
+    insert("left");
+    insert("right");
+    insert("clockwise");
+    insert("counterclockwise");
+    insert("down");
+    insert("leveldown");
+    insert("levelup");
+    insert("drop");
+    insert("norandom");
+    insert("random");
+
+    insert("sequence");
+    insert("restart");
+    insert("hint");
+    insert("s");
+    insert("z");
+    insert("l");
+    insert("j");
+    insert("i");
+    insert("o");
+    insert("t");
     //
-
-//why?
 
     ///
 
@@ -130,7 +90,7 @@ int main(){
         string mul(command.begin(), command.begin()+letter);
         string interp(command.begin()+letter,command.end());
 
-        interp = trie_search(root,interp);
+        interp = search(interp);
 
         if (interp == "restart" || interp == "hint" || interp == "norandom" || interp == "random"){
             run.call(interp);

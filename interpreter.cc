@@ -4,9 +4,10 @@
 interpreter::interpreter(){
 
     livegame = new Game();
+
     std::cout << *livegame;
 
-   livegame->GeneratePiece();
+
 
 }
 void interpreter::call(std::string command){

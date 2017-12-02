@@ -15,6 +15,7 @@ Game::Game(){
     hiscore = 0;
     GeneratePiece();
     NextPiece();
+
 }
 
 void Game::NextPiece(){
@@ -47,6 +48,7 @@ else if (nextPiece == 'L'){
 
 L();
 }
+
 GeneratePiece();
 }
 
@@ -379,6 +381,8 @@ for (auto &a : CurrentPiece->getlayout()){
 }
 }
 g->Check();
+
+//
 NextPiece();
 }
 void Game::S(){
