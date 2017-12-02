@@ -4,9 +4,10 @@
 interpreter::interpreter(){
 
     livegame = new Game();
+
     std::cout << *livegame;
 
-   livegame->GeneratePiece();
+
 
 }
 void interpreter::call(std::string command){
@@ -102,6 +103,10 @@ void interpreter::call(std::string command){
       livegame->Z();
       std::cout << *livegame;
 
+    }
+    else if (command == "clear"){
+      livegame->Clear();
+      std::cout << *livegame;
     }
 
 

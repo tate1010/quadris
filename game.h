@@ -48,6 +48,7 @@ public:
     void S();
     void O();
     void J();
+    void Clear();
     //
     friend  std::ostream& operator<<(std::ostream &out,  Game &game);
 
