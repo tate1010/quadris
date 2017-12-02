@@ -75,6 +75,7 @@ int main(){
     insert("i");
     insert("o");
     insert("t");
+    insert("clear");
     //
 
     ///

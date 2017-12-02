@@ -12,6 +12,7 @@ filled = true;
 }
 
 
+
 char Cell::getBlock(){
 
 return block;

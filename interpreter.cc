@@ -104,6 +104,10 @@ void interpreter::call(std::string command){
       std::cout << *livegame;
 
     }
+    else if (command == "clear"){
+      livegame->Clear();
+      std::cout << *livegame;
+    }
 
 
 }

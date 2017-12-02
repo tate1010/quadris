@@ -186,6 +186,7 @@ void Game::left(){
   for (auto &col : row){
 
   g->setPiece(col.getRow(),col.getCol(),' ');
+  
   }
   }
 
@@ -380,6 +381,7 @@ for (auto &a : CurrentPiece->getlayout()){
   }
 }
 }
+
 g->Check();
 
 //
@@ -466,6 +468,12 @@ for (auto &col : row){
 g->setPiece(col.getRow(),col.getCol(),col.getType());
 }
 }
+
+
+}
+
+void Game::Clear(){
+g->clear(17);
 
 
 }

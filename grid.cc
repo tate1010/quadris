@@ -41,16 +41,16 @@ void Grid::clear(int line){
         for (int col = 0; col < 11; ++col){
             theGrid[i][col].setPiece(theGrid[i-1][col].getBlock());
 
+            if (!theGrid[i-1][col].Filled()){
+                theGrid[i][col].unfill();
 
+            }
         }
     }
 
-    for (int cell = 0; cell < 11; ++cell){
-        theGrid[0][cell].setPiece(' ');
 
-    }
     for(auto &cell : hitbox){
-      --cell;
+      ++cell;
 
 
     }
@@ -58,17 +58,19 @@ void Grid::clear(int line){
 void Grid::Check(){
 
   for (int row = 0; row < 18; ++row){
-    bool full = true;
-    for (auto &col : theGrid[row]){
-      if (!col.Filled()){
+    bool full = false;
+    for (int col = 0; col < 11; ++ col){
 
-        full = false;
+
+
+      if (!theGrid[row][col].Filled()){
+        full = true;
       }
-
-
     }
-    if (full) clear(row);
-    full = true;
+
+    if (!full)  clear(row);
+
+
 
   }
 
@@ -78,10 +80,10 @@ void Grid::setPiece(int r, int c, char piece){
 
 
     theGrid[r][c].setPiece(piece);
-    if (piece ==' '){
 
-        theGrid[r][c].unfill();
+    if(piece == ' '){
 
+          theGrid[r][c].unfill();
     }
 }
 void Grid::display(){
