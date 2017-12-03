@@ -50,7 +50,7 @@ string search(string search){
 
 
 
-int main(int argc, char* argv[]){
+int main(){
     interpreter run;
     
     
