@@ -427,6 +427,7 @@ void Game::Clear(){
    
 }
 
+
 /* // should put this in interpreter too
 void Game::norandom(std::string noRandomFile){
     std::string command;
@@ -437,9 +438,6 @@ void Game::norandom(std::string noRandomFile){
 */
 
 void Game::sequence(std::string sequenceFileName){
-    // very sketchy, should probably put this in interpreter
-    // ^YES
-    // todo
     // also should not hardcode this 
     std::string command;
     std::ifstream sequenceFile(sequenceFileName);
@@ -494,6 +492,7 @@ void Game::sequence(std::string sequenceFileName){
              */
         }
     }
+    
 }
 
 

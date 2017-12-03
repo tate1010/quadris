@@ -1,3 +1,5 @@
-T
-S 
-L
+down
+right
+down
+right
+down left
