@@ -46,7 +46,7 @@ void interpreter::call(std::string command){
 
     }
     else if( command == "leveldown"){
-  livegame->leveldown();
+      livegame->leveldown();
 
     }
     else if( command == "restart"){

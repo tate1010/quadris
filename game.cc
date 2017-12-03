@@ -20,164 +20,75 @@ Game::Game(){
 
 void Game::NextPiece(){
     
-    if (nextPiece == 'I'){
+    if (nextPiece == 'I')
         I();
-        
-    }
-    else if (nextPiece == 'T'){
-        
+    else if (nextPiece == 'T')
         T();
-    }
-    else if (nextPiece == 'O'){
-        
+    else if (nextPiece == 'O')
         O();
-    }
-    else if (nextPiece == 'Z'){
-        
+    else if (nextPiece == 'Z')
         Z();
-    }
-    else if (nextPiece == 'S'){
-        
+    else if (nextPiece == 'S')
         S();
-    }
-    else if (nextPiece == 'J'){
-        
+    else if (nextPiece == 'J')
         J();
-    }
-    else if (nextPiece == 'L'){
-        
+    else if (nextPiece == 'L')
         L();
-    }
     
     GeneratePiece();
 }
 
-char Game::GetNext(){
-    return nextPiece;
-    
-}
+char Game::GetNext() {return nextPiece;}
 
 void Game::GeneratePiece(){
-    //level1
-    
+
+    if (level == 0)
+        
     if (level == 1){
-        
-        
-        
         int RNG = rand()%12+1;
-        if (RNG == 1){
-            nextPiece = 'S';
-            
-        }
-        else if (RNG == 2){
-            nextPiece = 'Z';
-            
-        }
-        else if (RNG == 3 || RNG == 4){
-            
-            nextPiece = 'T';
-            
-        }
-        else if (RNG == 5 || RNG == 6){
-            nextPiece = 'I';
-        }
-        else if (RNG == 7 || RNG == 8){
-            nextPiece = 'O';
-        }
-        else if (RNG == 9 || RNG == 10){
-            nextPiece = 'L';
-        }
-        else if (RNG == 11 || RNG == 12){
-            nextPiece = 'J';
-        }
-        //
+        if (RNG == 1) {nextPiece = 'S';}
+        else if (RNG == 2) {nextPiece = 'Z';}
+        else if (RNG == 3 || RNG == 4) {nextPiece = 'T';}
+        else if (RNG == 5 || RNG == 6) {nextPiece = 'I';}
+        else if (RNG == 7 || RNG == 8) {nextPiece = 'O';}
+        else if (RNG == 9 || RNG == 10) {nextPiece = 'L';}
+        else if (RNG == 11 || RNG == 12) {nextPiece = 'J';}
     }
-    if (level ==2){
+    
+    if (level == 2){
         
         int RNG = rand()%7+1;
-        if (RNG == 1){
-            nextPiece = 'S';
-            
-            
-        }
-        else if (RNG == 2){
-            nextPiece = 'Z';
-        }
-        else if (RNG == 3){
-            
-            nextPiece = 'T';
-        }
-        else if (RNG == 4){
-            nextPiece = 'I';
-            
-        }
-        else if (RNG == 5){
-            nextPiece = 'O';
-            
-        }
-        else if (RNG == 6){
-            nextPiece = 'L';
-        }
-        else if (RNG == 7){
-            nextPiece = 'J';
-        }
+        if (RNG == 1){nextPiece = 'S';}
+        else if (RNG == 2) {nextPiece = 'Z';}
+        else if (RNG == 3) {nextPiece = 'T';}
+        else if (RNG == 4) {nextPiece = 'I';}
+        else if (RNG == 5) {nextPiece = 'O';}
+        else if (RNG == 6) {nextPiece = 'L';}
+        else if (RNG == 7){nextPiece = 'J';}
     }
-    //
+
     if (level >=3){
         
         int RNG = rand()%9+1;
-        if (RNG == 1 || RNG == 8){
-            nextPiece = 'S';
-            
-            
-        }
-        else if (RNG == 2 || RNG == 9){
-            nextPiece = 'Z';
-            
-        }
-        else if (RNG == 3){
-            
-            nextPiece = 'T';
-            
-        }
-        else if (RNG == 4){
-            nextPiece = 'I';
-            
-        }
-        else if (RNG == 5){
-            nextPiece = 'O';
-            
-        }
-        else if (RNG == 6){
-            nextPiece = 'L';
-            
-        }
-        else if (RNG == 7){
-            nextPiece = 'J';
-            
-        }
+        if (RNG == 1 || RNG == 8) {nextPiece = 'S';}
+        else if (RNG == 2 || RNG == 9) {nextPiece = 'Z';}
+        else if (RNG == 3) {nextPiece = 'T';}
+        else if (RNG == 4) {nextPiece = 'I';}
+        else if (RNG == 5) {nextPiece = 'O';}
+        else if (RNG == 6) {nextPiece = 'L';}
+        else if (RNG == 7) {nextPiece = 'J';}
     }
     
 }
 
 void Game::levelup(){
-    if (level < 4){
+    if (level < 4)
         ++ level;
-        
-        
-    }
-    
-    
 }
 
 void Game::leveldown(){
-    
-    if (level> 0){
-        
+    if (level> 0)
         --level;
-    }
-    
-    
 }
 
 
@@ -409,18 +320,16 @@ void Game::drop(){
             for (auto &b : a){
                 if (b.getType() != 'e'){
                     if( b.getCol() == col){
-                        
                         if(amount > g->Hitbox()[col]-b.getRow()){
                             amount= g->Hitbox()[col]-b.getRow();
-                            
                         }
                     }
                 }
-            }}
+            }
+        }
     }
     
     for(int times = amount; times > 0 ; --times ){
-        
         down();
     }
     //calculate hitbox now
@@ -442,81 +351,69 @@ void Game::drop(){
     
     g->Check();
     
-    //
     NextPiece();
 }
+
 void Game::S(){
     CurrentPiece = new Spiece();
     
     for (auto &row: CurrentPiece->getlayout()){
         for (auto &col : row){
-            
             g->setPiece(col.getRow(),col.getCol(),col.getType());
         }
     }
-    
-    
 }
+
 void Game::T(){
     CurrentPiece = new Tpiece();
     
     for (auto &row: CurrentPiece->getlayout()){
         for (auto &col : row){
-            
             g->setPiece(col.getRow(),col.getCol(),col.getType());
         }
     }
-    
-    
 }
+
 void Game::I(){
     CurrentPiece = new Ipiece();
     
     for (auto &row: CurrentPiece->getlayout()){
         for (auto &col : row){
-            
             g->setPiece(col.getRow(),col.getCol(),col.getType());
         }
     }
-    
-    
 }
+
 void Game::L(){
     CurrentPiece = new Lpiece();
     
     for (auto &row: CurrentPiece->getlayout()){
         for (auto &col : row){
-            
             g->setPiece(col.getRow(),col.getCol(),col.getType());
         }
     }
-    
-    
 }
+
 void Game::J(){
     CurrentPiece = new Jpiece();
     
     for (auto &row: CurrentPiece->getlayout()){
         for (auto &col : row){
-            
             g->setPiece(col.getRow(),col.getCol(),col.getType());
         }
     }
-    
-    
 }
+
 void Game::O(){
     CurrentPiece = new Opiece();
     
     for (auto &row: CurrentPiece->getlayout()){
         for (auto &col : row){
-            
             g->setPiece(col.getRow(),col.getCol(),col.getType());
         }
     }
-    
-    
 }
+
 void Game::Z(){
     CurrentPiece = new Zpiece();
     
@@ -526,12 +423,9 @@ void Game::Z(){
             g->setPiece(col.getRow(),col.getCol(),col.getType());
         }
     }
-    
-    
 }
 
 void Game::Clear(){
     g->clear(17);
-    
-    
+   
 }
