@@ -13,12 +13,16 @@
 Game::Game(){
     
     g = new Grid();
-    level = 1; //set at 1 for testing. please reset when needed
+    level = 1; //set at 1 for testing. pl;ease reset when needed
     score = 0;
     hiscore = 0;
     GeneratePiece();
     NextPiece();
     
+}
+
+void Game::setNextPiece(char pieceType){
+    nextPiece = pieceType;
 }
 
 void Game::NextPiece(){
@@ -224,8 +228,8 @@ std::ostream& operator<<(std::ostream &out,  Game &game){
     }
     else if (game.GetNext() == 'T'){
         
-        out << " T " << std::endl;
         out << "TTT" << std::endl;
+        out << " T " << std::endl;
     }
     else if (game.GetNext() == 'O'){
         

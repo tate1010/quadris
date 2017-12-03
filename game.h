@@ -31,6 +31,7 @@ public:
     void rotate_counterclock();
     void norandom(std::string noRandomFile);
     void sequence(std::string sequenceFileName);
+    
 
      //replace current with next Piece
     //ToDO
@@ -44,7 +45,9 @@ public:
 
 
     //for testing here
+    void setNextPiece(char pieceType);;
     char GetNext();
+    
     void I();
     void T();
     void L();

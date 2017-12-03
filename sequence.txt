@@ -1,5 +1,14 @@
-down
+down 
 right
-down
 right
-down left
+right
+left
+clockwise
+counterclockwise
+clockwise clockwise
+S
+drop
+T
+drop
+L
+drop

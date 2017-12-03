@@ -3,6 +3,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <sstream>
+
 interpreter::interpreter(){
     
     livegame = new Game();
@@ -59,64 +61,83 @@ void interpreter::call(std::string command){
         std::string sequenceFileName;
         std::cin >> sequenceFileName;
         //std::cout << "sequence file received: " << sequenceFileName << std::endl;
-        std::string seqcommand;
         std::ifstream sequenceFile (sequenceFileName);
+        std::string currentCommand;
         //sequenceFile.is_open() ? std::cout << "yes" : std::cout <<  "no";
         if (sequenceFile.is_open()) {
-            std::cout << "File opened?" << std::endl;
-            std::cout << "command" <<  seqcommand << std::endl;
-            while (sequenceFile >> seqcommand) {
-                if (seqcommand == "left")
+            while (sequenceFile >> currentCommand) {
+                
+                if (currentCommand == "left")
                     livegame->left();
-                else if (seqcommand == "right")
+                else if (currentCommand == "right")
                     livegame->right();
-                else if (seqcommand == "down")
+                else if (currentCommand == "down")
                     livegame->down();
-                else if (seqcommand == "drop")
+                else if (currentCommand == "drop")
                     livegame->drop();
-                else if (seqcommand == "levelup")
+                else if (currentCommand == "levelup")
                     livegame->levelup();
-                else if (seqcommand == "leveldown")
+                else if (currentCommand == "leveldown")
                     livegame->leveldown();
-                else if (seqcommand == "clockwise")
+                else if (currentCommand == "clockwise")
                     livegame->rotate_clock();
-                else if (seqcommand == "counterclockwise")
+                else if (currentCommand == "counterclockwise")
                     livegame->rotate_counterclock();
-                /*else if (command == "norandom") {
-                 std::string noRandomFile;
-                 sequenceFile >> noRandomFile;
-                 norandom(noRandomFile);
-                 }*/
-                /*else if (command == "sequence") {
-                    std::string seqFileName;
-                    sequenceFile >> seqFileName;
-                    sequence(seqFileName);
-                }*/
-                else if (seqcommand == "I")
-                    livegame->I();
-                else if (seqcommand == "T")
-                    livegame->T();
-                else if (seqcommand == "O")
-                    livegame->O();
-                else if (seqcommand == "Z")
-                    livegame->Z();
-                else if (seqcommand == "S")
-                    livegame->S();
-                else if (seqcommand == "J")
-                    livegame->J();
-                else if (seqcommand == "L")
-                    livegame->L();
-                /*
-                 else if (command == "restart")
-                 restart();   // the restart function - rename if necesssary
-                 else if (command == "hint") {
-                 //code here
-                 }
-                 */
-                std::cout << *livegame;
+                else if (currentCommand == "sequence"){
+                    call("sequence");
+                }
+                else if (currentCommand == "I" || currentCommand == "T" || currentCommand == "O" || currentCommand == "Z" || currentCommand == "S" || currentCommand == "J" || currentCommand == "L" )
+                    livegame->setNextPiece(currentCommand[0]);
+                
+                //std::cout << *livegame; // for individual step
             }
+            std::cout << *livegame;
         }
+        // need other commands here
+        
+        
+        /*
+         else if (command == "norandom") {
+         std::string noRandomFile;
+         sequenceFile >> noRandomFile;
+         norandom(noRandomFile);
+         }
+         */
+        /*
+         else if (command == "sequence") {
+         std::string seqFileName;
+         sequenceFile >> seqFileName;
+         sequence(seqFileName);
+         }*/
+        
+        /*
+         else if (seqcommand == "I")
+         livegame->setNextPiece('I');
+         else if (seqcommand == "T")
+         livegame->setNextPiece('T');
+         else if (seqcommand == "O")
+         livegame->setNextPiece('O')
+         else if (seqcommand == "Z")
+         livegame->setNextPiece('Z')
+         else if (seqcommand == "S")
+         livegame->S();
+         else if (seqcommand == "J")
+         livegame->J();
+         else if (seqcommand == "L")
+         livegame->L();
+         */
+        
+        /*
+         else if (command == "restart")
+         restart();   // the restart function - rename if necesssary
+         else if (command == "hint") {
+         //code here
+         }
+         */
+        
+        
     }
+
             /*else if( command == "hint"){
              
              
