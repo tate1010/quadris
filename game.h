@@ -16,7 +16,6 @@ class Game{
     int hiscore;
     int timer = 0 ; //used in level 4 only
     long long seed = 0;
-
 public:
     Game();
 
@@ -32,6 +31,7 @@ public:
     void rotate_counterclock();
     void norandom(std::string noRandomFile);
     void sequence(std::string sequenceFileName);
+    
 
      //replace current with next Piece
     //ToDO
@@ -45,8 +45,9 @@ public:
 
 
     //for testing here
-    void LEVEL4();
+    void setNextPiece(char pieceType);;
     char GetNext();
+    
     void I();
     void T();
     void L();
