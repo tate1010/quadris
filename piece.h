@@ -17,23 +17,25 @@ using std::vector;
 
 class piece
 {
-
-
+    int pieceNumRow = 0;
+    int pieceNumCol = 0;
+    
 protected:
     std::vector <std::vector <block>> layout;
-    piece(size_t pieceNumRow, size_t pieceNumCol) ;
-
+    piece(int pieceNumRow, int pieceNumCol) ;
+    
 public:
-    piece();
     void harddrop();
     void softdrop();
     void move_left();
     void move_right();
     void rotate_counterclock();
     void rotate_clock();
-
+    
     std::vector <std::vector <block>> getlayout();
+    char getTypePiece();
     friend std::ostream &operator<<(std::ostream &out,  piece &p);
+    
 };
 
 #endif /* piece_hpp */

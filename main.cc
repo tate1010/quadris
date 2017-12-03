@@ -22,6 +22,7 @@ vector <std::string> library;
 
 
 bool isPrefix(std::string str, std::string pre) {
+<<<<<<< HEAD
   // this function checks if pre is a prefix of str
   auto res = std::mismatch(pre.begin(), pre.end(), str.begin());
   return res.first == pre.end();
@@ -30,6 +31,32 @@ bool isPrefix(std::string str, std::string pre) {
 void insert(string word){
 library.push_back(word);
 
+=======
+    // this function checks if pre is a prefix of str
+    auto res = std::mismatch(pre.begin(), pre.end(), str.begin());
+    return res.first == pre.end();
+}
+
+void insert(string word){
+    library.push_back(word);
+    
+}
+
+string search(string search){
+    string key = "";
+    for (auto &word : library)
+    {
+        if (isPrefix(word,search)){
+            if (key == ""){
+                key = word;
+            }
+            else key = "ambigous";
+        }
+    }
+    
+    
+    return key;
+>>>>>>> c09c8b0ce4f5b9511e44dda00ba69a8292878da7
 }
 
 string search(string search){
@@ -45,6 +72,7 @@ else key = "ambigous";
 }
 
 
+<<<<<<< HEAD
 return key;
 }
 
@@ -54,6 +82,12 @@ int main(){
     interpreter run;
 
 
+=======
+int main(){
+    interpreter run;
+    
+    
+>>>>>>> c09c8b0ce4f5b9511e44dda00ba69a8292878da7
     insert("left");
     insert("right");
     insert("clockwise");
@@ -64,7 +98,11 @@ int main(){
     insert("drop");
     insert("norandom");
     insert("random");
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> c09c8b0ce4f5b9511e44dda00ba69a8292878da7
     insert("sequence");
     insert("restart");
     insert("hint");
@@ -77,9 +115,13 @@ int main(){
     insert("t");
     insert("clear");
     //
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> c09c8b0ce4f5b9511e44dda00ba69a8292878da7
     ///
-
+    
     //cout << trie_search(root, "lef");
     string command;
     while (cin >> command){
@@ -87,27 +129,33 @@ int main(){
         while (isdigit(command[letter])){
             ++letter;
         }
-
+        
         string mul(command.begin(), command.begin()+letter);
         string interp(command.begin()+letter,command.end());
+<<<<<<< HEAD
 
         interp = search(interp);
 
+=======
+        
+        interp = search(interp);
+        
+>>>>>>> c09c8b0ce4f5b9511e44dda00ba69a8292878da7
         if (interp == "restart" || interp == "hint" || interp == "norandom" || interp == "random"){
             run.call(interp);
         }
         else if(mul == ""){
             run.call(interp);
-
-
+            
+            
         }
         else{
             for (int i = 0 ; i < stoi(mul) ; ++i){
                 //do more shit
                 run.call(interp);
-
+                
             }
         }
     }
-
+    
 }

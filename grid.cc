@@ -60,6 +60,7 @@ bool something_cleared = false; // use in level 4
   for (int row = 0; row < 18; ++row){
     bool full = false;
     for (int col = 0; col < 11; ++ col){
+<<<<<<< HEAD
 
 
 
@@ -67,11 +68,25 @@ bool something_cleared = false; // use in level 4
         full = true;
       }
     }
+=======
+
+>>>>>>> c09c8b0ce4f5b9511e44dda00ba69a8292878da7
 
     if (!full) { clear(row);
 
+<<<<<<< HEAD
       something_cleared = true;
     }
+=======
+      if (!theGrid[row][col].Filled()){
+        full = true;
+      }
+    }
+
+    if (!full)  clear(row);
+
+
+>>>>>>> c09c8b0ce4f5b9511e44dda00ba69a8292878da7
 
 
 
@@ -107,14 +122,17 @@ std::vector<int>& Grid::Hitbox(){
 
 
 std::ostream& operator<<(std::ostream &out,  Grid &grd){
-
+    
     for (int row = 3; row < 18; ++row){
-        for (int col = 0; col < 11; ++ col){
-
-            out << grd.getBlock(row,col);
-
+        for (int col = 0; col < 11; ++ col)
+        {
+            if (grd.getBlock(row,col) == 'e')
+                out << ' ';
+            else
+                out << grd.getBlock(row,col);
+            
         }
         out << std::endl;
     }
-return out;
+    return out;
 }

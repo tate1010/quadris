@@ -8,7 +8,8 @@
 
 #include "piece.h"
 
-piece::piece(size_t pieceNumRow, size_t pieceNumCol): layout(pieceNumRow, vector<block>(pieceNumCol)) {}
+piece::piece(int pieceNumRow, int pieceNumCol): layout(pieceNumRow, vector<block>(pieceNumCol)), pieceNumRow(pieceNumRow), pieceNumCol(pieceNumCol) {}
+
 
 
 
@@ -40,73 +41,78 @@ void piece::move_right()
 
 
 std::vector <std::vector <block>> piece::getlayout(){
-
+    
     return layout;
+    
+}
 
+char piece::getTypePiece()
+{
+    for (int i = 0; i < pieceNumRow; i++)
+        for (int j = 0; j < pieceNumCol; j++)
+            if ((layout[i][j].getType() != 'e') || (layout[i][j].getType() != ' '))
+                return layout[i][j].getType();
+    
+    return 'e';
+    
 }
 
 void piece::rotate_counterclock()
 {
-    int numrow = (int)layout.size();
-    int numcol = (int)layout[0].size();
-
-    int newNumRow = numcol;
-    int newNumCol = numrow;
-
+    int newNumRow = pieceNumCol;
+    int newNumCol = pieceNumRow;
+    
     int topLeftRow = layout[0][0].getRow();
     int topLeftCol = layout[0][0].getCol();
-
+    
     piece newLayout = piece (newNumRow, newNumCol);
-
-    for (int i = 0; i < numrow; i++)
+    
+    for (int i = 0; i < pieceNumRow; i++)
     {
-        for (int j = 0; j < numcol; j++)
+        for (int j = 0; j < pieceNumCol; j++)
         {
-            newLayout.layout[newNumRow-j-1][i].changeBlockRow(topLeftRow+numrow-1-j);
+            newLayout.layout[newNumRow-j-1][i].changeBlockRow(topLeftRow+pieceNumRow-1-j);
             newLayout.layout[newNumRow-j-1][i].changeBlockCol(topLeftCol+i);
         }
     }
-
-    for (int i = 0; i < numcol; i++)
+    
+    for (int i = 0; i < pieceNumCol; i++)
     {
-        for (int j = 0; j < numrow; j++)
+        for (int j = 0; j < pieceNumRow; j++)
         {
-            newLayout.layout[i][j].changeBlockType(layout[j][numcol-i-1].getType());
-
+            newLayout.layout[i][j].changeBlockType(layout[j][pieceNumCol-i-1].getType());
+            
         }
     }
-
+    
     layout = newLayout.layout;
-
+    
 }
 void piece::rotate_clock()
 {
-    int numrow = (int)layout.size();
-    int numcol = (int)layout[0].size();
-
-    int newNumRow = numcol;
-    int newNumCol = numrow;
-
+    
+    int newNumRow = pieceNumCol;
+    
     int topLeftRow = layout[0][0].getRow();
     int topLeftCol = layout[0][0].getCol();
-
-    piece newLayout = piece (numcol, numrow);
-
-    for (int i = 0; i < numrow; i++)
+    
+    piece newLayout = piece (pieceNumCol, pieceNumRow);
+    
+    for (int i = 0; i < pieceNumRow; i++)
     {
-        for (int j = 0; j < numcol; j++)
+        for (int j = 0; j < pieceNumCol; j++)
         {
-            newLayout.layout[newNumRow-j-1][i].changeBlockRow(topLeftRow+numrow-1-j);
+            newLayout.layout[newNumRow-j-1][i].changeBlockRow(topLeftRow+pieceNumRow-1-j);
             newLayout.layout[newNumRow-j-1][i].changeBlockCol(topLeftCol+i);
         }
     }
-
-    for (int i = 0; i < numrow; i++)
-        for (int j = 0; j < numcol; j++)
-            newLayout.layout[j][numrow-i-1].changeBlockType(layout[i][j].getType());
-
+    
+    for (int i = 0; i < pieceNumRow; i++)
+        for (int j = 0; j < pieceNumCol; j++)
+            newLayout.layout[j][pieceNumRow-i-1].changeBlockType(layout[i][j].getType());
+    
     layout = newLayout.layout;
-
+    
 }
 
 std::ostream &operator<<(std::ostream &out, piece &p)
@@ -121,6 +127,6 @@ std::ostream &operator<<(std::ostream &out, piece &p)
         }
         out << std::endl;
     }
-
+    
     return out;
 }
