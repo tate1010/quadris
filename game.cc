@@ -13,49 +13,16 @@
 Game::Game(){
     
     g = new Grid();
-    level = 1; //set at 1 for testing. please reset when needed
+    level = 1; //set at 1 for testing. pl;ease reset when needed
     score = 0;
     hiscore = 0;
     GeneratePiece();
     NextPiece();
-<<<<<<< HEAD
-
-}
-
-void Game::NextPiece(){
-
-if (nextPiece == 'I'){
-I();
-
-}
-else if (nextPiece == 'T'){
-
-T();
-}
-else if (nextPiece == 'O'){
-
-O();
-}
-else if (nextPiece == 'Z'){
-
-Z();
-}
-else if (nextPiece == 'S'){
-
-S();
-}
-else if (nextPiece == 'J'){
-
-J();
-}
-else if (nextPiece == 'L'){
-
-L();
-}
-
-GeneratePiece();
-=======
     
+}
+
+void Game::setNextPiece(char pieceType){
+    nextPiece = pieceType;
 }
 
 void Game::NextPiece(){
@@ -76,7 +43,6 @@ void Game::NextPiece(){
         L();
     
     GeneratePiece();
->>>>>>> c09c8b0ce4f5b9511e44dda00ba69a8292878da7
 }
 
 char Game::GetNext() {return nextPiece;}
@@ -134,57 +100,6 @@ void Game::leveldown(){
 
 
 void Game::left(){
-<<<<<<< HEAD
-
-  //CHECK BEFORE
-  for (auto &row: CurrentPiece->getlayout()){
-  for (auto &col : row){
-
-  g->setPiece(col.getRow(),col.getCol(),' ');
-
-  }
-  }
-
-  CurrentPiece -> move_left();
-
-  for (auto &row: CurrentPiece->getlayout()){
-  for (auto &col : row){
-
-  g->setPiece(col.getRow(),col.getCol(),col.getType());
-  }
-  }
-  if (level >= 3){
-    down();
-
-  }
-
-}
-
-void Game::LEVEL4(){
-
-
-  ++ timer;
-
-  if (timer == 5){
-  //do shit
-
-  for (int row = 0; row <= 18 ; ++row){
-    if (row == 18){
-
-        g->setPiece(17,5,'*');
-    }
-    else if (g->getBlock(row,5)!= ' '){
-
-      g->setPiece(row-1,5,'*');
-      break;
-    }
-
-  }
-  --g->Hitbox()[5];
-
-    timer = 0;
-  }
-=======
     
     vector <vector <block>> layout = CurrentPiece->getlayout();
     int rowsize = (int) layout.size();
@@ -226,7 +141,6 @@ void Game::LEVEL4(){
             }
         }
     }
->>>>>>> c09c8b0ce4f5b9511e44dda00ba69a8292878da7
 }
 
 void Game::right()
@@ -268,18 +182,6 @@ void Game::right()
     }
 }
 
-<<<<<<< HEAD
-  g->setPiece(col.getRow(),col.getCol(),col.getType());
-  }
-  }
-
-  if (level >= 3){
-    down();
-
-  }
-}
-=======
->>>>>>> c09c8b0ce4f5b9511e44dda00ba69a8292878da7
 void Game::down(){
     for (auto &row: CurrentPiece->getlayout()){
         for (auto &col : row){
@@ -326,8 +228,8 @@ std::ostream& operator<<(std::ostream &out,  Game &game){
     }
     else if (game.GetNext() == 'T'){
         
-        out << " T " << std::endl;
         out << "TTT" << std::endl;
+        out << " T " << std::endl;
     }
     else if (game.GetNext() == 'O'){
         
@@ -363,30 +265,6 @@ std::ostream& operator<<(std::ostream &out,  Game &game){
 }
 
 void Game::rotate_clock(){
-<<<<<<< HEAD
-
-  for (auto &row: CurrentPiece->getlayout()){
-  for (auto &col : row){
-
-  g->setPiece(col.getRow(),col.getCol(),' ');
-  }
-  }
-
-  CurrentPiece -> rotate_clock();
-
-  for (auto &row: CurrentPiece->getlayout()){
-  for (auto &col : row){
-
-  g->setPiece(col.getRow(),col.getCol(),col.getType());
-  }
-  }
-  if (level >= 3){
-  down();
-
-  }
-
-
-=======
     
     char c = CurrentPiece->getTypePiece();
     int max = (int)std::max(CurrentPiece->getlayout().size(),CurrentPiece->getlayout()[0].size());
@@ -409,7 +287,6 @@ void Game::rotate_clock(){
             g->setPiece(col.getRow(),col.getCol(),col.getType());
         }
     }
->>>>>>> c09c8b0ce4f5b9511e44dda00ba69a8292878da7
 }
 
 void Game::rotate_counterclock(){
@@ -436,30 +313,6 @@ void Game::rotate_counterclock(){
     }
 }
 
-<<<<<<< HEAD
-  for (auto &row: CurrentPiece->getlayout()){
-  for (auto &col : row){
-
-  g->setPiece(col.getRow(),col.getCol(),' ');
-  }
-  }
-
-  CurrentPiece -> rotate_counterclock();
-
-  for (auto &row: CurrentPiece->getlayout()){
-  for (auto &col : row){
-
-  g->setPiece(col.getRow(),col.getCol(),col.getType());
-  }
-  }
-  if (level >= 3){
-    down();
-
-  }
-
-}
-=======
->>>>>>> c09c8b0ce4f5b9511e44dda00ba69a8292878da7
 void Game::drop(){
     int amount = 15 ;
     
@@ -502,25 +355,6 @@ void Game::drop(){
     NextPiece();
 }
 
-<<<<<<< HEAD
-  }
-}
-}
-
-
-if(g->Check()){
-timer = 0;
-
-}
-else if (level == 4 ){
-
-  LEVEL4();
-}
-//
-NextPiece();
-}
-=======
->>>>>>> c09c8b0ce4f5b9511e44dda00ba69a8292878da7
 void Game::S(){
     CurrentPiece = new Spiece();
     
@@ -531,11 +365,6 @@ void Game::S(){
     }
 }
 
-<<<<<<< HEAD
-
-}
-=======
->>>>>>> c09c8b0ce4f5b9511e44dda00ba69a8292878da7
 void Game::T(){
     CurrentPiece = new Tpiece();
     
@@ -602,6 +431,7 @@ void Game::Clear(){
    
 }
 
+
 /* // should put this in interpreter too
 void Game::norandom(std::string noRandomFile){
     std::string command;
@@ -612,9 +442,6 @@ void Game::norandom(std::string noRandomFile){
 */
 
 void Game::sequence(std::string sequenceFileName){
-    // very sketchy, should probably put this in interpreter
-    // ^YES
-    // todo
     // also should not hardcode this 
     std::string command;
     std::ifstream sequenceFile(sequenceFileName);
@@ -669,17 +496,8 @@ void Game::sequence(std::string sequenceFileName){
              */
         }
     }
+    
 }
 
 
 
-<<<<<<< HEAD
-}
-
-void Game::Clear(){
-g->clear(17);
-
-
-}
-=======
->>>>>>> c09c8b0ce4f5b9511e44dda00ba69a8292878da7
