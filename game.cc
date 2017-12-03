@@ -182,11 +182,13 @@ if (level> 0){
 
 
 void Game::left(){
+
+  //CHECK BEFORE
   for (auto &row: CurrentPiece->getlayout()){
   for (auto &col : row){
 
   g->setPiece(col.getRow(),col.getCol(),' ');
-  
+
   }
   }
 
@@ -198,7 +200,37 @@ void Game::left(){
   g->setPiece(col.getRow(),col.getCol(),col.getType());
   }
   }
+  if (level >= 3){
+    down();
 
+  }
+
+}
+
+void Game::LEVEL4(){
+
+
+  ++ timer;
+
+  if (timer == 5){
+  //do shit
+
+  for (int row = 0; row <= 18 ; ++row){
+    if (row == 18){
+
+        g->setPiece(17,5,'*');
+    }
+    else if (g->getBlock(row,5)!= ' '){
+
+      g->setPiece(row-1,5,'*');
+      break;
+    }
+
+  }
+  --g->Hitbox()[5];
+
+    timer = 0;
+  }
 }
 
 void Game::right(){
@@ -217,6 +249,11 @@ void Game::right(){
 
   g->setPiece(col.getRow(),col.getCol(),col.getType());
   }
+  }
+
+  if (level >= 3){
+    down();
+
   }
 }
 void Game::down(){
@@ -320,6 +357,10 @@ void Game::rotate_clock(){
   g->setPiece(col.getRow(),col.getCol(),col.getType());
   }
   }
+  if (level >= 3){
+  down();
+
+  }
 
 
 }
@@ -340,6 +381,10 @@ void Game::rotate_counterclock(){
 
   g->setPiece(col.getRow(),col.getCol(),col.getType());
   }
+  }
+  if (level >= 3){
+    down();
+
   }
 
 }
@@ -382,8 +427,15 @@ for (auto &a : CurrentPiece->getlayout()){
 }
 }
 
-g->Check();
 
+if(g->Check()){
+timer = 0;
+
+}
+else if (level == 4 ){
+
+  LEVEL4();
+}
 //
 NextPiece();
 }
@@ -396,6 +448,7 @@ for (auto &col : row){
 g->setPiece(col.getRow(),col.getCol(),col.getType());
 }
 }
+
 
 
 }

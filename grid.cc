@@ -55,8 +55,8 @@ void Grid::clear(int line){
 
     }
 }
-void Grid::Check(){
-
+bool Grid::Check(){
+bool something_cleared = false; // use in level 4
   for (int row = 0; row < 18; ++row){
     bool full = false;
     for (int col = 0; col < 11; ++ col){
@@ -68,12 +68,15 @@ void Grid::Check(){
       }
     }
 
-    if (!full)  clear(row);
+    if (!full) { clear(row);
+
+      something_cleared = true;
+    }
 
 
 
   }
-
+return something_cleared;
 }
 
 void Grid::setPiece(int r, int c, char piece){

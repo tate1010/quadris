@@ -15,6 +15,7 @@ class Game{
     int hiscore;
     int timer = 0 ; //used in level 4 only
     long long seed = 0;
+
 public:
     Game();
 
@@ -40,6 +41,7 @@ public:
 
 
     //for testing here
+    void LEVEL4();
     char GetNext();
     void I();
     void T();
