@@ -55,14 +55,29 @@ void Grid::clear(int line){
 
     }
 }
-void Grid::Check(){
-
+bool Grid::Check(){
+bool something_cleared = false; // use in level 4
   for (int row = 0; row < 18; ++row){
     bool full = false;
     for (int col = 0; col < 11; ++ col){
+<<<<<<< HEAD
 
 
 
+      if (!theGrid[row][col].Filled()){
+        full = true;
+      }
+    }
+=======
+
+>>>>>>> c09c8b0ce4f5b9511e44dda00ba69a8292878da7
+
+    if (!full) { clear(row);
+
+<<<<<<< HEAD
+      something_cleared = true;
+    }
+=======
       if (!theGrid[row][col].Filled()){
         full = true;
       }
@@ -71,9 +86,12 @@ void Grid::Check(){
     if (!full)  clear(row);
 
 
+>>>>>>> c09c8b0ce4f5b9511e44dda00ba69a8292878da7
+
+
 
   }
-
+return something_cleared;
 }
 
 void Grid::setPiece(int r, int c, char piece){

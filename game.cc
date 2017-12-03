@@ -25,6 +25,10 @@ void Game::setNextPiece(char pieceType){
     nextPiece = pieceType;
 }
 
+void Game::setNextPiece(char pieceType){
+    nextPiece = pieceType;
+}
+
 void Game::NextPiece(){
     
     if (nextPiece == 'I')
