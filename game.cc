@@ -7,6 +7,9 @@
 #include "Spiece.h"
 #include "Jpiece.h"
 #include <iostream>
+#include <fstream>
+#include <string>
+
 Game::Game(){
     
     g = new Grid();
@@ -40,10 +43,10 @@ void Game::NextPiece(){
 
 char Game::GetNext() {return nextPiece;}
 
-void Game::GeneratePiece(){
 
-    if (level == 0)
-        
+void Game::GeneratePiece(){
+//levels
+
     if (level == 1){
         int RNG = rand()%12+1;
         if (RNG == 1) {nextPiece = 'S';}
@@ -174,6 +177,7 @@ void Game::right()
         }
     }
 }
+
 void Game::down(){
     for (auto &row: CurrentPiece->getlayout()){
         for (auto &col : row){
@@ -191,8 +195,6 @@ void Game::down(){
             }
         }
     }
-    
-    
 }
 
 
@@ -269,7 +271,6 @@ void Game::rotate_clock(){
     
     for (auto &row: CurrentPiece->getlayout()){
         for (auto &col : row){
-            
             g->setPiece(col.getRow(),col.getCol(),' ');
         }
     }
@@ -282,8 +283,6 @@ void Game::rotate_clock(){
             g->setPiece(col.getRow(),col.getCol(),col.getType());
         }
     }
-    
-    
 }
 
 void Game::rotate_counterclock(){
@@ -293,10 +292,8 @@ void Game::rotate_counterclock(){
     
     if ((layout[0][0].getCol() > layout.size()))
     {
-        
         for (auto &row: CurrentPiece->getlayout()){
             for (auto &col : row){
-                
                 g->setPiece(col.getRow(),col.getCol(),' ');
             }
         }
@@ -310,8 +307,8 @@ void Game::rotate_counterclock(){
             }
         }
     }
-    
 }
+
 void Game::drop(){
     int amount = 15 ;
     
@@ -429,3 +426,75 @@ void Game::Clear(){
     g->clear(17);
    
 }
+
+/* // should put this in interpreter too
+void Game::norandom(std::string noRandomFile){
+    std::string command;
+    std::ifstream commmandFile (noRandomFile)
+    if (commmandFile.is_open())
+        
+}
+*/
+
+void Game::sequence(std::string sequenceFileName){
+    // very sketchy, should probably put this in interpreter
+    // ^YES
+    // todo
+    // also should not hardcode this 
+    std::string command;
+    std::ifstream sequenceFile(sequenceFileName);
+    if (sequenceFile.is_open()) {
+        while (sequenceFile >> command) {
+            if (command == "left")
+                left();
+            else if (command == "right")
+                right();
+            else if (command == "down")
+                down();
+            else if (command == "drop")
+                drop();
+            else if (command == "levelup")
+                levelup();
+            else if (command == "leveldown")
+                leveldown();
+            else if (command == "clockwise")
+                rotate_clock();
+            else if (command == "counterclockwise")
+                rotate_counterclock();
+            /*else if (command == "norandom") {
+                std::string noRandomFile;
+                sequenceFile >> noRandomFile;
+                norandom(noRandomFile);
+            }*/
+            else if (command == "sequence") {
+                std::string seqFileName;
+                sequenceFile >> seqFileName;
+                sequence(seqFileName);
+            }
+            else if (command == "I")
+                I();
+            else if (command == "T")
+                T();
+            else if (command == "O")
+                O();
+            else if (command == "Z")
+                Z();
+            else if (command == "S")
+                S();
+            else if (command == "J")
+                J();
+            else if (command == "L")
+                L();
+            /*
+             else if (command == "restart")
+             restart();   // the restart function - rename if necesssary
+             else if (command == "hint") {
+                //code here
+             }
+             */
+        }
+    }
+}
+
+
+

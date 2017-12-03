@@ -54,7 +54,10 @@ void interpreter::call(std::string command){
 
     }
     else if( command == "sequence"){
-
+        std::string sequenceFileName;
+        std::cin >> sequenceFileName;
+        livegame->sequence(sequenceFileName);
+        std::cout << *livegame;
 
     }
     else if( command == "hint"){

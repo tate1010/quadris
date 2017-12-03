@@ -11,7 +11,8 @@
 /*
 1. clockwise - rotate 2 or more times gives wrong position of a block
 2. counterclockwise - not rotating
- 
+3. sequence w/ norandom still needs work
+4. initial configuration for T
 */
 
 

@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <cstddef>
+#include <string>
 #include "grid.h"
 #include "piece.h"
 
@@ -28,6 +29,9 @@ public:
     void NextPiece();
     void rotate_clock();
     void rotate_counterclock();
+    void norandom(std::string noRandomFile);
+    void sequence(std::string sequenceFileName);
+
      //replace current with next Piece
     //ToDO
     //void rotate_clock();
