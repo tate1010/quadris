@@ -330,9 +330,10 @@ void Game::Pickup(){
 
   for (auto &row: CurrentPiece->getlayout()){
       for (auto &col : row){
-
+          if (col.getType() != 'e'){
           g->unfill(col.getRow(),col.getCol());
       }
+    }
   }
 
 
