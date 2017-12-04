@@ -167,9 +167,9 @@ void Game::GeneratePiece(){
             for (int i = 17; i >= 3; i--)
             {
                 
-                if (g->getBlock(i, 6) == ' ')
+                if (g->getBlock(i, 5) == ' ')
                 {
-                    g->setPiece(i, 6, '*');
+                    g->setPiece(i, 5, '*');
                     timer = 0;
                     break;
                 }
