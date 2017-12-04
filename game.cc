@@ -90,21 +90,15 @@ void Game::GeneratePiece(){
                     break;
                 }
             }
-            
         }
         ++timer;
     }
-    
 }
 
 void Game::levelup(){
     if (level < 4){
         ++ level;
-        
-        
     }
-    
-    
 }
 
 void Game::leveldown(){
@@ -116,26 +110,26 @@ void Game::leveldown(){
     
     
 }
-
-
-
-
 void Game::left(){
     
     vector <vector <block>> layout = CurrentPiece->getlayout();
-    int rowsize = (int) layout.size();
-    int colsize = (int) layout[0].size();
+    int topLefRow = layout[0][0].getRow();
+    int topLefCol = layout[0][0].getCol();
     
-    int colnum = layout[0][0].getCol();
-    int rownum = layout[0][0].getRow();
-    
-    for (int j = 0; j < colsize; j++)
+    for (int i = 0; i < layout.size();i++)
     {
-        for (int i = 0; i < rowsize; i++)
+        for (int j = 0; j < layout[0].size();j++)
         {
-            
+            if (layout[i][j].getType() != 'e')
+            {
+                if ((g->getBlock(i+topLefRow, j+topLefCol-1) != 'e'))
+                    return;
+                else
+                    break;
+            }
         }
     }
+    
     
     if (layout[0][0].getCol() > 0)
     {
@@ -144,8 +138,8 @@ void Game::left(){
         {
             for (auto &col : row)
             {
-                if (col.getType() != ' ' && col.getType() != 'e')
-                    g->setPiece(col.getRow(),col.getCol(),' ');
+                if (col.getType() != 'e')
+                    g->setPiece(col.getRow(),col.getCol(),'e');
                 
             }
         }
@@ -155,7 +149,7 @@ void Game::left(){
         for (auto &row: CurrentPiece->getlayout()){
             for (auto &col : row){
                 
-                if (col.getType() != ' ' && col.getType() != 'e')
+                if (col.getType() != 'e')
                     g->setPiece(col.getRow(),col.getCol(),col.getType());
             }
         }
@@ -166,17 +160,21 @@ void Game::right()
 {
     vector <vector <block>> layout = CurrentPiece->getlayout();
     int colsize = (int)layout[0].size();
-    int rowsize = (int) layout.size();
     
-    int lastColNum = layout[0][colsize-1].getCol();
-    int rownum = layout[0][0].getRow();
+    int topLefRow = layout[0][0].getRow();
+    int topLefCol = layout[0][0].getCol();
     
-    for (int i = 0; i < rowsize; i++)
+    for (int i = (int)layout.size()-1; i >= 0; i--)
     {
-        if (g->getBlock(i+rownum, lastColNum + 1) != ' ' &&
-            (g->getBlock(i+rownum, lastColNum) != 'e' && g->getBlock(i+rownum, lastColNum) != ' '))
+        for (int j = colsize-1; j >= 0; j--)
         {
-            return;
+            if (layout[i][j].getType() != 'e')
+            {
+                if (g->getBlock(i+topLefRow, j+topLefCol+1) != 'e')
+                    return;
+                else
+                    break;
+            }
         }
     }
     
@@ -184,8 +182,8 @@ void Game::right()
     {
         for (auto &row: CurrentPiece->getlayout()){
             for (auto &col : row){
-                if (col.getType() != ' ' && col.getType() != 'e')
-                    g->setPiece(col.getRow(),col.getCol(),' ');
+                if (col.getType() != 'e')
+                    g->setPiece(col.getRow(),col.getCol(),'e');
             }
         }
         
@@ -194,7 +192,7 @@ void Game::right()
         for (auto &row: CurrentPiece->getlayout()){
             for (auto &col : row){
                 
-                if (col.getType() != ' ' && col.getType() != 'e')
+                if (col.getType() != 'e')
                     g->setPiece(col.getRow(),col.getCol(),col.getType());
             }
         }
@@ -293,7 +291,7 @@ void Game::rotate_clock(){
         for (auto &row: CurrentPiece->getlayout()){
             for (auto &col : row){
                 
-                g->setPiece(col.getRow(),col.getCol(),' ');
+                g->setPiece(col.getRow(),col.getCol(),'e');
             }
         }
         
@@ -321,7 +319,7 @@ void Game::rotate_counterclock(){
         for (auto &row: CurrentPiece->getlayout()){
             for (auto &col : row){
                 
-                g->setPiece(col.getRow(),col.getCol(),' ');
+                g->setPiece(col.getRow(),col.getCol(),'e');
             }
         }
         
