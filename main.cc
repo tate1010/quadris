@@ -67,9 +67,9 @@ int main(int argc, char *argv[]){
             //pass ("level",argv[i+1]);
             i++;
         }
-        else if (strcmp(argv[i],"-text") == 0){
+        //else if (strcmp(argv[i],"-text") == 0){
             //somethinghere
-        }
+        //}
     }
     
     insert("left");
@@ -113,17 +113,17 @@ int main(int argc, char *argv[]){
         
         
         if (interp == "restart" || interp == "hint" || interp == "norandom" || interp == "random"){
-            run.call(interp);
+            run.call(interp, "");
         }
         else if(mul == ""){
-            run.call(interp);
+            run.call(interp, "");
             
             
         }
         else{
             for (int i = 0 ; i < stoi(mul) ; ++i){
                 //do more shit
-                run.call(interp);
+                run.call(interp, "");
                 
             }
         }
