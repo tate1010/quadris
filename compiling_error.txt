@@ -1,10 +1,9 @@
-C:\Users\tatec\Documents\a3\quadris\game.cc: In member function �uvoid Game::rotate_counterclock()�v:
-C:\Users\tatec\Documents\a3\quadris\game.cc:408:16: ���~�Gqualified-id in declaration before �u(�v token
- void Game::drop(){
-                ^
-C:\Users\tatec\Documents\a3\quadris\game.cc:419:13: ���~�Gqualified-id in declaration before �u(�v token
- void Game::S(){
-             ^
-C:\Users\tatec\Documents\a3\quadris\game.cc:560:1: ���~�Gexpected �u}�v at end of input
- }
- ^
+C:\Users\tatec\AppData\Local\Temp\ccPKKQGQ.o:main.cc:(.text+0x1d): undefined reference to `Lpiece::Lpiece()'
+C:\Users\tatec\AppData\Local\Temp\ccPKKQGQ.o:main.cc:(.text+0x30): undefined reference to `operator<<(std::ostream&, piece&)'
+C:\Users\tatec\AppData\Local\Temp\ccPKKQGQ.o:main.cc:(.text+0x4b): undefined reference to `piece::rotate_counterclock()'
+C:\Users\tatec\AppData\Local\Temp\ccPKKQGQ.o:main.cc:(.text+0x5e): undefined reference to `operator<<(std::ostream&, piece&)'
+C:\Users\tatec\AppData\Local\Temp\ccPKKQGQ.o:main.cc:(.text+0x79): undefined reference to `piece::rotate_counterclock()'
+C:\Users\tatec\AppData\Local\Temp\ccPKKQGQ.o:main.cc:(.text+0x8c): undefined reference to `operator<<(std::ostream&, piece&)'
+C:\Users\tatec\AppData\Local\Temp\ccPKKQGQ.o:main.cc:(.text+0xa7): undefined reference to `piece::rotate_counterclock()'
+C:\Users\tatec\AppData\Local\Temp\ccPKKQGQ.o:main.cc:(.text+0xba): undefined reference to `operator<<(std::ostream&, piece&)'
+collect2.exe: ���~�Gld �^�� 1
