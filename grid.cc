@@ -22,7 +22,6 @@ Grid::Grid(){
     td = new TextDisplay();
     hitbox = std::vector<int> (11,17);
     
-    
 }
 
 
