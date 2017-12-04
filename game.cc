@@ -36,6 +36,12 @@ char Game::GetNext(){
     return nextPiece;
 }
 
+void Game::changeLevel(int i)
+{
+    std::cout << "hi im changeLevel, current level is " << i << std::endl;
+    level = i;
+}
+
 void Game::GeneratePiece(){
     //level1
     

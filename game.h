@@ -30,7 +30,7 @@ public:
     void rotate_counterclock();
     void norandom(std::string noRandomFile);
     void sequence(std::string sequenceFileName);
-    
+    void changeLevel(int i);
 
      //replace current with next Piece
     //ToDO

@@ -64,7 +64,8 @@ int main(int argc, char *argv[]){
             i++;
         }
         else if (strcmp(argv[i],"-startlevel") == 0){
-            //pass ("level",argv[i+1]);
+            cout<<"here"<<endl;
+            run.call("level",argv[i+1]);
             i++;
         }
         //else if (strcmp(argv[i],"-text") == 0){
