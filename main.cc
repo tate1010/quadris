@@ -51,8 +51,26 @@ string search(string search){
 
 
 
-int main(){
+int main(int argc, char *argv[]){
     interpreter run;
+    
+    for (int i=1; i<argc; i++){
+        if (strcmp(argv[i],"-scriptfile") == 0){
+            run.call("sequence",argv[i+1]);
+            i++;
+        }
+        else if (strcmp(argv[i],"-seed") == 0){
+            //pass ("seed",argv[i+1]);
+            i++;
+        }
+        else if (strcmp(argv[i],"-startlevel") == 0){
+            //pass ("level",argv[i+1]);
+            i++;
+        }
+        else if (strcmp(argv[i],"-text") == 0){
+            //somethinghere
+        }
+    }
     
     insert("left");
     insert("right");

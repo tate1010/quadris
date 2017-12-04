@@ -22,6 +22,6 @@ public:
     void sequence(std::string file);
     void restart();
     void Hint();
-    void call(std::string command);
+    void call(std::string command, std::string arg);
 };
 #endif

@@ -11,7 +11,7 @@ interpreter::interpreter(){
     std::cout << *livegame;
 }
 
-void interpreter::call(std::string command){
+void interpreter::call(std::string command, std::string arg){
     
     if( command == "left"){
         livegame->left();
@@ -56,7 +56,10 @@ void interpreter::call(std::string command){
     }
     else if( command == "sequence"){
         std::string sequenceFileName;
-        std::cin >> sequenceFileName;
+        if (arg != "")
+            sequenceFileName = arg;
+        else
+            std::cin >> sequenceFileName;
         //std::cout << "sequence file received: " << sequenceFileName << std::endl;
         std::ifstream sequenceFile (sequenceFileName);
         std::string currentCommand;
@@ -81,7 +84,9 @@ void interpreter::call(std::string command){
                 else if (currentCommand == "counterclockwise")
                     livegame->rotate_counterclock();
                 else if (currentCommand == "sequence"){
-                    call("sequence");
+                    std::string fileName;
+                    sequenceFile >> fileName;
+                    call("sequence", fileName);
                 }
                 else if (currentCommand == "I" || currentCommand == "T" || currentCommand == "O" || currentCommand == "Z" || currentCommand == "S" || currentCommand == "J" || currentCommand == "L" )
                     livegame->setNextPiece(currentCommand[0]);
