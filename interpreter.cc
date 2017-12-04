@@ -9,7 +9,6 @@ interpreter::interpreter(){
     
     livegame = new Game();
     
-    
 }
 
 void interpreter::call(std::string command, std::string arg){
@@ -28,15 +27,16 @@ void interpreter::call(std::string command, std::string arg){
             std::cin >> sequenceFileName;
         //std::cout << "sequence file received: " << sequenceFileName << std::endl;
         std::ifstream sequenceFile (sequenceFileName);
-        while (sequenceFile){
-            std::string member;
-            sequenceFile >> member;
-            std::cout << member << " ";
-        }
-            
+        /*while (sequenceFile){
+         std::string member;
+         sequenceFile >> member;
+         std::cout << member << " ";
+         }
+         */
         std::string currentCommand;
         //sequenceFile.is_open() ? std::cout << "yes" : std::cout <<  "no";
         if (sequenceFile.is_open()) {
+            
             while (sequenceFile >> currentCommand) {
                 
                 if (currentCommand == "left")
@@ -60,8 +60,21 @@ void interpreter::call(std::string command, std::string arg){
                     sequenceFile >> fileName;
                     call("sequence", fileName);
                 }
-                else if (currentCommand == "I" || currentCommand == "T" || currentCommand == "O" || currentCommand == "Z" || currentCommand == "S" || currentCommand == "J" || currentCommand == "L" )
-                    livegame->setNextPiece(currentCommand[0]);
+                // the block cases
+                else if (currentCommand == "I")
+                    livegame->I();
+                else if (currentCommand == "T")
+                    livegame->T();
+                else if (currentCommand == "O")
+                    livegame->O();
+                else if (currentCommand == "Z")
+                    livegame->Z();
+                else if (currentCommand == "S")
+                    livegame->S();
+                else if (currentCommand == "J")
+                    livegame->J();
+                else if (currentCommand == "L")
+                    livegame->L();
                 
                 //std::cout << *livegame; // for individual step
             }
@@ -169,4 +182,6 @@ void interpreter::call(std::string command, std::string arg){
         livegame->Clear();
         std::cout << *livegame;
     }
+    else
+        std::cout << *livegame;
 }
