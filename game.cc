@@ -6,7 +6,6 @@
 #include "Zpiece.h"
 #include "Spiece.h"
 #include "Jpiece.h"
-#include "rotateCCWCases.h"
 #include <iostream>
 Game::Game(){
     
@@ -198,11 +197,32 @@ void Game::right()
         }
     }
 }
-void Game::down(){//fix
+bool Game::down(){
+    
+    vector <vector <block>> layout = CurrentPiece->getlayout();
+    int topLefRow = layout[0][0].getRow();
+    int topLefCol = layout[0][0].getCol();
+    
+    for (int j = 0; j < layout[0].size(); j++)
+    {
+        for (int i = (int)layout.size()-1; i >= 0; i--)
+        {
+            if (layout[i][j].getType() != 'e')
+            {
+                if ((layout[i][j].getRow() == 17) /*|| (g->getBlock(i+topLefRow+1, j+topLefCol) != 'e')*/)
+                    return false;
+                if (g->getBlock(i+topLefRow+1, j+topLefCol) == 'e')
+                    break;
+                else
+                    return false;
+            }
+        }
+    }
+    
     for (auto &row: CurrentPiece->getlayout()){
         for (auto &col : row){
-            
-            g->setPiece(col.getRow(),col.getCol(),'e');
+            if (col.getType() != 'e')
+                g->setPiece(col.getRow(),col.getCol(),'e');
         }
     }
     
@@ -215,7 +235,7 @@ void Game::down(){//fix
             }
         }
     }
-    
+    return true;
     
 }
 
@@ -335,45 +355,13 @@ void Game::rotate_counterclock(){
     
 }
 void Game::drop(){
-    int amount = 15 ;
-    
-    for (int col = 0; col < 11; ++col){
-        for (auto &a : CurrentPiece->getlayout()){
-            for (auto &b : a){
-                if (b.getType() != 'e'){
-                    if( b.getCol() == col){
-                        if(amount > g->Hitbox()[col]-b.getRow()){
-                            amount= g->Hitbox()[col]-b.getRow();
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
-    for(int times = amount; times > 0 ; --times ){
-        down();
-    }
-    //calculate hitbox now
-    
-    for (auto &a : CurrentPiece->getlayout()){
-        for (auto &b : a){
-            
-            if (b.getType() != 'e'){
-                
-                if ( g->Hitbox()[b.getCol()] > b.getRow()-1){
-                    
-                    g->Hitbox()[b.getCol()] = b.getRow()-1;
-                    
-                }
-                
-            }
-        }
-    }
+    bool wentDown = true;
+
+    while (wentDown)
+        wentDown = down();
     
     g->Check();
-    
-    //
+    CurrentPiece = new Opiece;
     NextPiece();
 }
 

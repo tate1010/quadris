@@ -20,7 +20,7 @@ public:
 
     void left();
     void right();
-    void down();
+    bool down();
     void drop();
     void GeneratePiece();
     void levelup();
