@@ -383,7 +383,7 @@ void Game::S(){
     if (CurrentPiece){
         for (auto &row: CurrentPiece->getlayout()){
             for (auto &col : row){
-                g->setPiece(col.getRow(),col.getCol(),' ');
+                g->setPiece(col.getRow(),col.getCol(),'e');
             }
         }
     }
@@ -401,7 +401,7 @@ void Game::T(){
     if (CurrentPiece){
         for (auto &row: CurrentPiece->getlayout()){
             for (auto &col : row){
-                g->setPiece(col.getRow(),col.getCol(),' ');
+                g->setPiece(col.getRow(),col.getCol(),'e');
             }
         }
     }
@@ -421,7 +421,7 @@ void Game::I(){
     if (CurrentPiece){
         for (auto &row: CurrentPiece->getlayout()){
             for (auto &col : row){
-                g->setPiece(col.getRow(),col.getCol(),' ');
+                g->setPiece(col.getRow(),col.getCol(),'e');
             }
         }
     }
@@ -440,7 +440,7 @@ void Game::L(){
     if (CurrentPiece){
         for (auto &row: CurrentPiece->getlayout()){
             for (auto &col : row){
-                g->setPiece(col.getRow(),col.getCol(),' ');
+                g->setPiece(col.getRow(),col.getCol(),'e');
             }
         }
     }
@@ -459,7 +459,7 @@ void Game::J(){
     if (CurrentPiece){
         for (auto &row: CurrentPiece->getlayout()){
             for (auto &col : row){
-                g->setPiece(col.getRow(),col.getCol(),' ');
+                g->setPiece(col.getRow(),col.getCol(),'e');
             }
         }
     }
@@ -478,7 +478,7 @@ void Game::O(){
     if (CurrentPiece){
         for (auto &row: CurrentPiece->getlayout()){
             for (auto &col : row){
-                g->setPiece(col.getRow(),col.getCol(),' ');
+                g->setPiece(col.getRow(),col.getCol(),'e');
             }
         }
     }
@@ -497,7 +497,7 @@ void Game::Z(){
     if (CurrentPiece){
         for (auto &row: CurrentPiece->getlayout()){
             for (auto &col : row){
-                g->setPiece(col.getRow(),col.getCol(),' ');
+                g->setPiece(col.getRow(),col.getCol(),'e');
             }
         }
     }
