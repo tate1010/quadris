@@ -82,8 +82,7 @@ void Grid::setPiece(int r, int c, char piece){
     
     theGrid[r][c].setPiece(piece);
     
-    if(piece == ' '){
-        
+    if(piece == 'e'){
         theGrid[r][c].unfill();
     }
 }
@@ -96,8 +95,6 @@ std::vector<int>& Grid::Hitbox(){
     
     return hitbox;
 }
-
-
 
 
 

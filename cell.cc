@@ -2,29 +2,17 @@
 
 
 Cell::Cell(size_t r,size_t c):r(r),c(c){
-  block = ' ';
+    block = 'e';
 };
 
 void Cell::setPiece(char b){
-
-block  = b;
-filled = true;
+    
+    block  = b;
+    filled = true;
 }
 
+char Cell::getBlock(){return block;}
 
+void Cell::unfill(){filled = false;}
 
-char Cell::getBlock(){
-
-return block;
-
-}
-void Cell::unfill(){
-filled = false;
-
-
-}
-bool Cell::Filled(){
-return filled;
-
-
-}
+bool Cell::Filled(){return filled;}
