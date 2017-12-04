@@ -28,7 +28,10 @@ public:
     void NextPiece();
     void rotate_clock();
     void rotate_counterclock();
-    void endGame();
+    void norandom(std::string noRandomFile);
+    void sequence(std::string sequenceFileName);
+    
+
      //replace current with next Piece
     //ToDO
     //void rotate_clock();
@@ -40,6 +43,7 @@ public:
 
 
 
+<<<<<<< HEAD
     //for testing here
     char GetNext();
     void setNextPiece(char pieceType);
