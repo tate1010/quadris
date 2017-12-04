@@ -56,15 +56,15 @@ int main(int argc, char *argv[]){
     interpreter run;
 
     for (int i=1; i<argc; i++){
-        if (strcmp(argv[i],"-scriptfile") == 0){
+        if (argv[i] == "-scriptfile"){
             run.call("sequence",argv[i+1]);
             i++;
         }
-        else if (strcmp(argv[i],"-seed") == 0){
+        else if (argv[i] == "-seed"){
             //pass ("seed",argv[i+1]);
             i++;
         }
-        else if (strcmp(argv[i],"-startlevel") == 0){
+        else if (argv[i] == "-startlevel"){
             cout<<"here"<<endl;
             run.call("level",argv[i+1]);
             i++;
