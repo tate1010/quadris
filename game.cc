@@ -21,41 +21,19 @@ Game::Game(){
 
 void Game::NextPiece(){
     
-    if (nextPiece == 'I'){
-        I();
-        
-    }
-    else if (nextPiece == 'T'){
-        
-        T();
-    }
-    else if (nextPiece == 'O'){
-        
-        O();
-    }
-    else if (nextPiece == 'Z'){
-        
-        Z();
-    }
-    else if (nextPiece == 'S'){
-        
-        S();
-    }
-    else if (nextPiece == 'J'){
-        
-        J();
-    }
-    else if (nextPiece == 'L'){
-        
-        L();
-    }
+    if (nextPiece == 'I'){I();}
+    else if (nextPiece == 'T'){T();}
+    else if (nextPiece == 'O'){O();}
+    else if (nextPiece == 'Z'){Z();}
+    else if (nextPiece == 'S'){S();}
+    else if (nextPiece == 'J'){J();}
+    else if (nextPiece == 'L'){L();}
     
     GeneratePiece();
 }
 
 char Game::GetNext(){
     return nextPiece;
-    
 }
 
 void Game::GeneratePiece(){
@@ -103,7 +81,7 @@ void Game::GeneratePiece(){
         {
             block b;
             for (int i = 17; i >= 3; i--)
-            {  
+            {
                 if (g->getBlock(i, 5) == ' ')
                 {
                     g->setPiece(i, 5, '*');
