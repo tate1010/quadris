@@ -557,76 +557,20 @@ void Game::Z(){
 
 void Game::Clear(){
     g->clear(17);
-   
+    
 }
 
 
 /* // should put this in interpreter too
-void Game::norandom(std::string noRandomFile){
-    std::string command;
-    std::ifstream commmandFile (noRandomFile)
-    if (commmandFile.is_open())
-        
-}
-*/
+ void Game::norandom(std::string noRandomFile){
+ std::string command;
+ std::ifstream commmandFile (noRandomFile)
+ if (commmandFile.is_open())
+ 
+ }
+ */
 
-void Game::sequence(std::string sequenceFileName){
-    // also should not hardcode this 
-    std::string command;
-    std::ifstream sequenceFile(sequenceFileName);
-    if (sequenceFile.is_open()) {
-        while (sequenceFile >> command) {
-            if (command == "left")
-                left();
-            else if (command == "right")
-                right();
-            else if (command == "down")
-                down();
-            else if (command == "drop")
-                drop();
-            else if (command == "levelup")
-                levelup();
-            else if (command == "leveldown")
-                leveldown();
-            else if (command == "clockwise")
-                rotate_clock();
-            else if (command == "counterclockwise")
-                rotate_counterclock();
-            /*else if (command == "norandom") {
-                std::string noRandomFile;
-                sequenceFile >> noRandomFile;
-                norandom(noRandomFile);
-            }*/
-            else if (command == "sequence") {
-                std::string seqFileName;
-                sequenceFile >> seqFileName;
-                sequence(seqFileName);
-            }
-            else if (command == "I")
-                I();
-            else if (command == "T")
-                T();
-            else if (command == "O")
-                O();
-            else if (command == "Z")
-                Z();
-            else if (command == "S")
-                S();
-            else if (command == "J")
-                J();
-            else if (command == "L")
-                L();
-            /*
-             else if (command == "restart")
-             restart();   // the restart function - rename if necesssary
-             else if (command == "hint") {
-                //code here
-             }
-             */
-        }
-    }
-    
-}
+
 
 
 
