@@ -370,12 +370,12 @@ try{Putdown();}
 catch(...){
 
 //get seg fault kid
-rotate_counterclock();
+CurrentPiece ->rotate_counterclock();
 Putdown();
 }
 }
 
-else {rotate_counterclock();
+else {CurrentPiece ->rotate_counterclock();
 Putdown();
 
 }
@@ -395,12 +395,12 @@ void Game::rotate_counterclock(){
   catch(...){
 
   //get seg fault kid
-  rotate_clock();
+  CurrentPiece ->rotate_clock();
   Putdown();
   }
   }
 
-  else {rotate_clock();
+  else {CurrentPiece ->rotate_clock();
   Putdown();
 
 }
