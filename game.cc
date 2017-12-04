@@ -11,7 +11,7 @@
 Game::Game(){
     
     g = new Grid();
-    level = 4; //set at 1 for testing. please reset when needed
+    level = 1; //set at 1 for testing. please reset when needed
     score = 0;
     hiscore = 0;
     GeneratePiece();
