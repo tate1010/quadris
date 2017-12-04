@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <ctype.h>
+#include <cstring>
 #include "interpreter.h"
 #include "block.h"
 #include "piece.h"
@@ -21,7 +22,7 @@ vector <std::string> library;
 
 
 bool isPrefix(std::string str, std::string pre) {
-    
+
     // this function checks if pre is a prefix of str
     auto res = std::mismatch(pre.begin(), pre.end(), str.begin());
     return res.first == pre.end();
@@ -29,7 +30,7 @@ bool isPrefix(std::string str, std::string pre) {
 
 void insert(string word){
     library.push_back(word);
-    
+
 }
 
 string search(string search){
@@ -43,17 +44,17 @@ string search(string search){
             else key = "ambigous";
         }
     }
-    
-    
+
+
     return key;
-    
+
 }
 
 
 
 int main(int argc, char *argv[]){
     interpreter run;
-    
+
     for (int i=1; i<argc; i++){
         if (strcmp(argv[i],"-scriptfile") == 0){
             run.call("sequence",argv[i+1]);
@@ -72,7 +73,7 @@ int main(int argc, char *argv[]){
             //somethinghere
         //}
     }
-    
+
     insert("left");
     insert("right");
     insert("clockwise");
@@ -83,7 +84,7 @@ int main(int argc, char *argv[]){
     insert("drop");
     insert("norandom");
     insert("random");
-    
+
     insert("sequence");
     insert("restart");
     insert("hint");
@@ -96,8 +97,8 @@ int main(int argc, char *argv[]){
     insert("T");
     insert("clear");
     //
-    
-    
+
+
     //cout << trie_search(root, "lef");
     string command;
     while (cin >> command){
@@ -105,29 +106,29 @@ int main(int argc, char *argv[]){
         while (isdigit(command[letter])){
             ++letter;
         }
-        
+
         string mul(command.begin(), command.begin()+letter);
         string interp(command.begin()+letter,command.end());
-        
-        
+
+
         interp = search(interp);
-        
-        
+
+
         if (interp == "restart" || interp == "hint" || interp == "norandom" || interp == "random"){
             run.call(interp, "");
         }
         else if(mul == ""){
             run.call(interp, "");
-            
-            
+
+
         }
         else{
             for (int i = 0 ; i < stoi(mul) ; ++i){
                 //do more shit
                 run.call(interp, "");
-                
+
             }
         }
     }
-    
+
 }

@@ -40,7 +40,9 @@ public:
     //void no random + sequence
     //void restart. maybe need to do outside
     //void Hint
-
+    void Pickup();
+    void Putdown();
+    bool CockBlock();
 
 
     //for testing here
