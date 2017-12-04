@@ -405,6 +405,7 @@ void Game::rotate_counterclock(){
 
 
 }
+}
 void Game::drop(){
     bool wentDown = true;
 
