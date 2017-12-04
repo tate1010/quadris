@@ -3,7 +3,6 @@
 #include <iostream>
 #include <vector>
 #include <cstddef>
-#include <string>
 #include "grid.h"
 #include "piece.h"
 
@@ -14,7 +13,7 @@ class Game{
     int level;
     int score;
     int hiscore;
-    int timer = 0 ; //used in level 4 only
+    int timer = -1 ; //used in level 4 only
     long long seed = 0;
 public:
     Game();
@@ -29,10 +28,7 @@ public:
     void NextPiece();
     void rotate_clock();
     void rotate_counterclock();
-    void norandom(std::string noRandomFile);
-    void sequence(std::string sequenceFileName);
-    
-
+    void endGame();
      //replace current with next Piece
     //ToDO
     //void rotate_clock();
@@ -45,9 +41,7 @@ public:
 
 
     //for testing here
-    void setNextPiece(char pieceType);;
     char GetNext();
-    
     void I();
     void T();
     void L();
