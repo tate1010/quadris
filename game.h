@@ -43,7 +43,6 @@ public:
 
 
 
-<<<<<<< HEAD
     //for testing here
     char GetNext();
     void setNextPiece(char pieceType);
