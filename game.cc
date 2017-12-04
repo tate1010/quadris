@@ -76,14 +76,14 @@ void Game::GeneratePiece(){
         else if (RNG == 7){nextPiece = 'J';}
     }
     
-    if (level == 4)
+    if (level == 4)  // can fix when drop fixes
     {
         if (timer == 5)
         {
             block b;
             for (int i = 17; i >= 3; i--)
             {
-                if (g->getBlock(i, 5) == ' ')
+                if (g->getBlock(i, 5) == 'e')
                 {
                     g->setPiece(i, 5, '*');
                     timer = 0;
@@ -198,11 +198,11 @@ void Game::right()
         }
     }
 }
-void Game::down(){
+void Game::down(){//fix
     for (auto &row: CurrentPiece->getlayout()){
         for (auto &col : row){
             
-            g->setPiece(col.getRow(),col.getCol(),' ');
+            g->setPiece(col.getRow(),col.getCol(),'e');
         }
     }
     
@@ -340,7 +340,7 @@ void Game::drop(){
     for (int col = 0; col < 11; ++col){
         for (auto &a : CurrentPiece->getlayout()){
             for (auto &b : a){
-                if (b.getType() != 'e'|| b.getType() != ' '){
+                if (b.getType() != 'e'){
                     if( b.getCol() == col){
                         if(amount > g->Hitbox()[col]-b.getRow()){
                             amount= g->Hitbox()[col]-b.getRow();

@@ -50,7 +50,7 @@ char piece::getTypePiece()
 {
     for (int i = 0; i < pieceNumRow; i++)
         for (int j = 0; j < pieceNumCol; j++)
-            if ((layout[i][j].getType() != 'e') || (layout[i][j].getType() != ' '))
+            if ((layout[i][j].getType() != 'e'))
                 return layout[i][j].getType();
     
     return 'e';
