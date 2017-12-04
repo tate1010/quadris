@@ -331,12 +331,11 @@ void Game::Pickup(){
   for (auto &row: CurrentPiece->getlayout()){
       for (auto &col : row){
           if (col.getType() != 'e'){
+
           g->unfill(col.getRow(),col.getCol());
       }
     }
   }
-
-
 
 }
 
@@ -359,6 +358,7 @@ void Game::Putdown()
 
 
 void Game::rotate_clock(){
+
 Pickup();
 
 CurrentPiece -> rotate_clock();
@@ -380,6 +380,7 @@ else {CurrentPiece ->rotate_counterclock();
 Putdown();
 
 }
+
 }
 
 void Game::rotate_counterclock(){
