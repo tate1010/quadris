@@ -85,8 +85,7 @@ void piece::rotate_counterclock()
         }
     }
     
-    layout = newLayout.layout;
-    
+   *this = newLayout; 
 }
 void piece::rotate_clock()
 {
@@ -111,8 +110,7 @@ void piece::rotate_clock()
         for (int j = 0; j < pieceNumCol; j++)
             newLayout.layout[j][pieceNumRow-i-1].changeBlockType(layout[i][j].getType());
     
-    layout = newLayout.layout;
-    
+   *this = newLayout; 
 }
 
 std::ostream &operator<<(std::ostream &out, piece &p)

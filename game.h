@@ -3,7 +3,6 @@
 #include <iostream>
 #include <vector>
 #include <cstddef>
-#include <string>
 #include "grid.h"
 #include "piece.h"
 
@@ -14,7 +13,7 @@ class Game{
     int level;
     int score;
     int hiscore;
-    int timer = 0 ; //used in level 4 only
+    int timer = -1 ; //used in level 4 only
     long long seed = 0;
 public:
     Game();
