@@ -403,7 +403,7 @@ void Game::rotate_counterclock(){
   else {rotate_clock();
   Putdown();
 
-
+}
 }
 void Game::drop(){
     bool wentDown = true;
