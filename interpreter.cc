@@ -114,7 +114,7 @@ void interpreter::call(std::string command, std::string arg){
         //std::cout << *livegame;
     }
     else if( command == "levelup"){
-        //livegame->levelup();
+        livegame->levelup();
         
     }
     else if( command == "leveldown"){
