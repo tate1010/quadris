@@ -62,101 +62,39 @@ void Game::GeneratePiece(){
     //level1
     
     if (level == 1){
-        
-        
-        
+ 
         int RNG = rand()%12+1;
-        if (RNG == 1){
-            nextPiece = 'S';
-            
-        }
-        else if (RNG == 2){
-            nextPiece = 'Z';
-            
-        }
-        else if (RNG == 3 || RNG == 4){
-            
-            nextPiece = 'T';
-            
-        }
-        else if (RNG == 5 || RNG == 6){
-            nextPiece = 'I';
-        }
-        else if (RNG == 7 || RNG == 8){
-            nextPiece = 'O';
-        }
-        else if (RNG == 9 || RNG == 10){
-            nextPiece = 'L';
-        }
-        else if (RNG == 11 || RNG == 12){
-            nextPiece = 'J';
-        }
+        if (RNG == 1) {nextPiece = 'S';}
+        else if (RNG == 2){nextPiece = 'Z';}
+        else if (RNG == 3 || RNG == 4){nextPiece = 'T';}
+        else if (RNG == 5 || RNG == 6){nextPiece = 'I';}
+        else if (RNG == 7 || RNG == 8){nextPiece = 'O';}
+        else if (RNG == 9 || RNG == 10){nextPiece = 'L';}
+        else if (RNG == 11 || RNG == 12){nextPiece = 'J';}
         //
     }
     if (level ==2){
         
         int RNG = rand()%7+1;
-        if (RNG == 1){
-            nextPiece = 'S';
-            
-            
-        }
-        else if (RNG == 2){
-            nextPiece = 'Z';
-        }
-        else if (RNG == 3){
-            
-            nextPiece = 'T';
-        }
-        else if (RNG == 4){
-            nextPiece = 'I';
-            
-        }
-        else if (RNG == 5){
-            nextPiece = 'O';
-            
-        }
-        else if (RNG == 6){
-            nextPiece = 'L';
-        }
-        else if (RNG == 7){
-            nextPiece = 'J';
-        }
+        if (RNG == 1){nextPiece = 'S';}
+        else if (RNG == 2){nextPiece = 'Z';}
+        else if (RNG == 3){ nextPiece = 'T';}
+        else if (RNG == 4){nextPiece = 'I';}
+        else if (RNG == 5){nextPiece = 'O';}
+        else if (RNG == 6){nextPiece = 'L';}
+        else if (RNG == 7){nextPiece = 'J';}
     }
     //
     if (level >=3){
         
         int RNG = rand()%9+1;
-        if (RNG == 1 || RNG == 8){
-            nextPiece = 'S';
-            
-            
-        }
-        else if (RNG == 2 || RNG == 9){
-            nextPiece = 'Z';
-            
-        }
-        else if (RNG == 3){
-            
-            nextPiece = 'T';
-            
-        }
-        else if (RNG == 4){
-            nextPiece = 'I';
-            
-        }
-        else if (RNG == 5){
-            nextPiece = 'O';
-            
-        }
-        else if (RNG == 6){
-            nextPiece = 'L';
-            
-        }
-        else if (RNG == 7){
-            nextPiece = 'J';
-            
-        }
+        if (RNG == 1 || RNG == 8){nextPiece = 'S';}
+        else if (RNG == 2 || RNG == 9){nextPiece = 'Z';}
+        else if (RNG == 3){nextPiece = 'T';}
+        else if (RNG == 4){nextPiece = 'I';}
+        else if (RNG == 5){nextPiece = 'O';}
+        else if (RNG == 6){nextPiece = 'L';}
+        else if (RNG == 7){nextPiece = 'J';}
     }
     
     if (level == 4)
@@ -165,8 +103,7 @@ void Game::GeneratePiece(){
         {
             block b;
             for (int i = 17; i >= 3; i--)
-            {
-                
+            {  
                 if (g->getBlock(i, 5) == ' ')
                 {
                     g->setPiece(i, 5, '*');
