@@ -332,8 +332,8 @@ std::ostream& operator<<(std::ostream &out,  Game &game){
     }
     else if (game.GetNext() == 'T'){
         
-        out << " T " << std::endl;
         out << "TTT" << std::endl;
+        out << " T " << std::endl;
     }
     else if (game.GetNext() == 'O'){
         
@@ -369,27 +369,25 @@ std::ostream& operator<<(std::ostream &out,  Game &game){
 }
 
 void Game::rotate_clock(){
+    vector <vector <block>> layout = CurrentPiece->getlayout();
     
-    char c = CurrentPiece->getTypePiece();
-    int max = (int)std::max(CurrentPiece->getlayout().size(),CurrentPiece->getlayout()[0].size());
-    
-    std::vector<std::vector<char>> vec (max, vector<char>(max));
-    
-    
-    
-    for (auto &row: CurrentPiece->getlayout()){
-        for (auto &col : row){
-            
-            g->setPiece(col.getRow(),col.getCol(),' ');
+    if (11-layout[0][0].getCol() > layout.size()-1)
+    {
+        
+        for (auto &row: CurrentPiece->getlayout()){
+            for (auto &col : row){
+                
+                g->setPiece(col.getRow(),col.getCol(),' ');
+            }
         }
-    }
-    
-    CurrentPiece -> rotate_clock();
-    
-    for (auto &row: CurrentPiece->getlayout()){
-        for (auto &col : row){
-            
-            g->setPiece(col.getRow(),col.getCol(),col.getType());
+        
+        CurrentPiece -> rotate_clock();
+        
+        for (auto &row: CurrentPiece->getlayout()){
+            for (auto &col : row){
+                
+                g->setPiece(col.getRow(),col.getCol(),col.getType());
+            }
         }
     }
     
@@ -401,7 +399,7 @@ void Game::rotate_counterclock(){
     vector <vector <block>> layout = CurrentPiece->getlayout();
     
     
-    if ((layout[0][0].getCol() > layout.size()))
+    if (11-layout[0][0].getCol() > layout.size()-1)
     {
         
         for (auto &row: CurrentPiece->getlayout()){
@@ -538,6 +536,11 @@ void Game::O(){
     
     
 }
+
+void Game::setNextPiece(char pieceType){
+    nextPiece = pieceType;
+}
+
 void Game::Z(){
     CurrentPiece = new Zpiece();
     

@@ -42,6 +42,7 @@ public:
 
     //for testing here
     char GetNext();
+    void setNextPiece(char pieceType);
     void I();
     void T();
     void L();
