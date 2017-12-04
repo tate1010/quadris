@@ -68,13 +68,13 @@ int main(){
     insert("sequence");
     insert("restart");
     insert("hint");
-    insert("s");
-    insert("z");
-    insert("l");
-    insert("j");
-    insert("i");
-    insert("o");
-    insert("t");
+    insert("S");
+    insert("Z");
+    insert("L");
+    insert("J");
+    insert("I");
+    insert("O");
+    insert("T");
     insert("clear");
     //
     

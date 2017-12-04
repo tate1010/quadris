@@ -14,9 +14,10 @@ Game::Game(){
     level = 1; //set at 1 for testing. please reset when needed
     score = 0;
     hiscore = 0;
+    CurrentPiece = nullptr;
     GeneratePiece();
     NextPiece();
-    
+  
 }
 
 void Game::NextPiece(){
@@ -341,20 +342,18 @@ void Game::drop(){
     for (int col = 0; col < 11; ++col){
         for (auto &a : CurrentPiece->getlayout()){
             for (auto &b : a){
-                if (b.getType() != 'e'){
+                if (b.getType() != 'e'|| b.getType() != ' '){
                     if( b.getCol() == col){
-                        
                         if(amount > g->Hitbox()[col]-b.getRow()){
                             amount= g->Hitbox()[col]-b.getRow();
-                            
                         }
                     }
                 }
-            }}
+            }
+        }
     }
     
     for(int times = amount; times > 0 ; --times ){
-        
         down();
     }
     //calculate hitbox now
@@ -379,19 +378,34 @@ void Game::drop(){
     //
     NextPiece();
 }
+
 void Game::S(){
+    if (CurrentPiece){
+        for (auto &row: CurrentPiece->getlayout()){
+            for (auto &col : row){
+                g->setPiece(col.getRow(),col.getCol(),' ');
+            }
+        }
+    }
+    
     CurrentPiece = new Spiece();
     
     for (auto &row: CurrentPiece->getlayout()){
         for (auto &col : row){
-            
             g->setPiece(col.getRow(),col.getCol(),col.getType());
         }
     }
-    
-    
 }
+
 void Game::T(){
+    if (CurrentPiece){
+        for (auto &row: CurrentPiece->getlayout()){
+            for (auto &col : row){
+                g->setPiece(col.getRow(),col.getCol(),' ');
+            }
+        }
+    }
+    
     CurrentPiece = new Tpiece();
     
     for (auto &row: CurrentPiece->getlayout()){
@@ -404,6 +418,14 @@ void Game::T(){
     
 }
 void Game::I(){
+    if (CurrentPiece){
+        for (auto &row: CurrentPiece->getlayout()){
+            for (auto &col : row){
+                g->setPiece(col.getRow(),col.getCol(),' ');
+            }
+        }
+    }
+    
     CurrentPiece = new Ipiece();
     
     for (auto &row: CurrentPiece->getlayout()){
@@ -412,10 +434,17 @@ void Game::I(){
             g->setPiece(col.getRow(),col.getCol(),col.getType());
         }
     }
-    
-    
 }
+
 void Game::L(){
+    if (CurrentPiece){
+        for (auto &row: CurrentPiece->getlayout()){
+            for (auto &col : row){
+                g->setPiece(col.getRow(),col.getCol(),' ');
+            }
+        }
+    }
+    
     CurrentPiece = new Lpiece();
     
     for (auto &row: CurrentPiece->getlayout()){
@@ -424,10 +453,17 @@ void Game::L(){
             g->setPiece(col.getRow(),col.getCol(),col.getType());
         }
     }
-    
-    
 }
+
 void Game::J(){
+    if (CurrentPiece){
+        for (auto &row: CurrentPiece->getlayout()){
+            for (auto &col : row){
+                g->setPiece(col.getRow(),col.getCol(),' ');
+            }
+        }
+    }
+    
     CurrentPiece = new Jpiece();
     
     for (auto &row: CurrentPiece->getlayout()){
@@ -436,38 +472,49 @@ void Game::J(){
             g->setPiece(col.getRow(),col.getCol(),col.getType());
         }
     }
-    
-    
 }
+
 void Game::O(){
+    if (CurrentPiece){
+        for (auto &row: CurrentPiece->getlayout()){
+            for (auto &col : row){
+                g->setPiece(col.getRow(),col.getCol(),' ');
+            }
+        }
+    }
+    
     CurrentPiece = new Opiece();
     
     for (auto &row: CurrentPiece->getlayout()){
         for (auto &col : row){
-            
             g->setPiece(col.getRow(),col.getCol(),col.getType());
         }
     }
+}
+
+
+void Game::Z(){
+    if (CurrentPiece){
+        for (auto &row: CurrentPiece->getlayout()){
+            for (auto &col : row){
+                g->setPiece(col.getRow(),col.getCol(),' ');
+            }
+        }
+    }
     
+    CurrentPiece = new Zpiece();
     
+    for (auto &row: CurrentPiece->getlayout()){
+        for (auto &col : row){
+            g->setPiece(col.getRow(),col.getCol(),col.getType());
+        }
+    }
 }
 
 void Game::setNextPiece(char pieceType){
     nextPiece = pieceType;
 }
 
-void Game::Z(){
-    CurrentPiece = new Zpiece();
-    
-    for (auto &row: CurrentPiece->getlayout()){
-        for (auto &col : row){
-            
-            g->setPiece(col.getRow(),col.getCol(),col.getType());
-        }
-    }
-    
-    
-}
 
 void Game::Clear(){
     g->clear(17);

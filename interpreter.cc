@@ -7,13 +7,10 @@
 
 interpreter::interpreter(){
     
-    livegame = new Game();
-    
+    livegame = new Game();    
     std::cout << *livegame;
-    
-    
-    
 }
+
 void interpreter::call(std::string command){
     
     if( command == "left"){
@@ -150,37 +147,37 @@ void interpreter::call(std::string command){
              
              
             }*/
-            else if (command == "s"){
+            else if (command == "S"){
                 livegame->S();
                 std::cout << *livegame;
                 
             }
-            else if (command == "t"){
+            else if (command == "T"){
                 livegame->T();
                 std::cout << *livegame;
                 
             }
-            else if (command == "j"){
+            else if (command == "J"){
                 livegame->J();
                 std::cout << *livegame;
                 
             }
-            else if (command == "l"){
+            else if (command == "L"){
                 livegame->L();
                 std::cout << *livegame;
                 
             }
-            else if (command == "o"){
+            else if (command == "O"){
                 livegame->O();
                 std::cout << *livegame;
                 
             }
-            else if (command == "i"){
+            else if (command == "I"){
                 livegame->I();
                 std::cout << *livegame;
                 
             }
-            else if (command == "z"){
+            else if (command == "Z"){
                 livegame->Z();
                 std::cout << *livegame;
                 
