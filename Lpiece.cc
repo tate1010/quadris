@@ -23,3 +23,4 @@ Lpiece::Lpiece() : piece(rowsize = 2, colsize = 3)
     }
     
 }
+

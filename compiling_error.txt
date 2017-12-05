@@ -7,3 +7,4 @@ C:\Users\tatec\AppData\Local\Temp\ccPKKQGQ.o:main.cc:(.text+0x8c): undefined ref
 C:\Users\tatec\AppData\Local\Temp\ccPKKQGQ.o:main.cc:(.text+0xa7): undefined reference to `piece::rotate_counterclock()'
 C:\Users\tatec\AppData\Local\Temp\ccPKKQGQ.o:main.cc:(.text+0xba): undefined reference to `operator<<(std::ostream&, piece&)'
 collect2.exe: ���~�Gld �^�� 1
+

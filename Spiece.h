@@ -23,3 +23,4 @@ public:
 };
 
 #endif /* Spiece_hpp */
+

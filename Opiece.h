@@ -23,3 +23,4 @@ public:
 };
 
 #endif /* squarepiece_h */
+

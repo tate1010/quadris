@@ -32,3 +32,4 @@ public:
     friend std::ostream &operator<<(std::ostream &out,  Grid &grd);
 };
 #endif
+

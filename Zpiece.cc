@@ -25,3 +25,4 @@ Zpiece::Zpiece() : piece(rowsize = 2, colsize = 3)
         }
     }
 }
+

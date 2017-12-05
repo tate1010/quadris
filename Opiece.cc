@@ -25,3 +25,4 @@ Opiece::Opiece() : piece(rowsize = 2, colsize = 2)
     }
     
 }
+

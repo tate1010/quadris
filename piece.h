@@ -39,3 +39,4 @@ public:
 };
 
 #endif /* piece_hpp */
+

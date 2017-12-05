@@ -56,3 +56,4 @@ void block::changeBlockCol(int a)
 {
     blockCol = a;
 }
+

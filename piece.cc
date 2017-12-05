@@ -128,3 +128,4 @@ std::ostream &operator<<(std::ostream &out, piece &p)
     
     return out;
 }
+

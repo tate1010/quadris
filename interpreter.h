@@ -26,3 +26,4 @@ public:
     void call(std::string command, std::string arg);
 };
 #endif
+

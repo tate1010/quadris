@@ -49,3 +49,4 @@ void Subject<InfoType, StateType>::setState(StateType newS) { state = newS; }
 template <typename InfoType, typename StateType>
 StateType Subject<InfoType, StateType>::getState() const { return state; }
 #endif
+

@@ -26,3 +26,4 @@ Tpiece::Tpiece() : piece(rowsize = 2, colsize = 3)
         }
     }
 }
+

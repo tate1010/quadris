@@ -20,3 +20,4 @@ Ipiece::Ipiece() : piece(rowsize = 1, colsize = 4)
         }
     }
 }
+

@@ -22,3 +22,4 @@ public:
 };
 
 #endif /* Jpiece_hpp */
+
