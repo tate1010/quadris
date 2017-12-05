@@ -188,4 +188,6 @@ void interpreter::call(std::string command, std::string arg){
     }
     //else
         //std::cout << *livegame;
+
+        livegame -> graphic();
 }

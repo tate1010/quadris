@@ -25,6 +25,9 @@ public:
     //line start from 0 to 15 (+3)
     //
     std::vector<int>& Hitbox();
+
+    std::vector<std::vector <char>> layout();
+
     friend std::ostream &operator<<(std::ostream &out,  Grid &grd);
 };
 #endif

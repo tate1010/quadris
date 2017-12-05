@@ -10,6 +10,7 @@
 Game::Game(){
 
     g = new Grid();
+    GD = new GraphicsDisplay(20,500);
     level = 1; //set at 1 for testing. please reset when needed
     score = 0;
     hiscore = 0;
@@ -18,6 +19,15 @@ Game::Game(){
     NextPiece();
 
 }
+
+
+void Game::graphic(){
+
+GD->update(g);
+
+}
+
+
 
 void Game::NextPiece(){
 

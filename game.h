@@ -5,10 +5,11 @@
 #include <cstddef>
 #include "grid.h"
 #include "piece.h"
-
+#include "graphicsdisplay.h"
 class Game{
     Grid *g;
     piece *CurrentPiece;
+    GraphicsDisplay *GD;
     char nextPiece;
     int level;
     int score;
@@ -31,6 +32,7 @@ public:
     void norandom(std::string noRandomFile);
     void sequence(std::string sequenceFileName);
     void changeLevel(int i);
+    void graphic();
 
      //replace current with next Piece
     //ToDO
