@@ -82,8 +82,8 @@ void Grid::clear(int line){
 // -------PLEASE CHECK AGAIN WHAT YOU DID HERE PLEASE TATE-----------
 // -----------IM SORRY BUT WE NEED TO REMOVE CONFLICTS---------------
 
-bool Grid::Check(){
-    bool something_cleared = false; // use in level 4
+int Grid::Check(){
+    int something_cleared = 0;
     for (int row = 0; row < 18; ++row){
         bool full = false;
         for (int col = 0; col < 11; ++ col){

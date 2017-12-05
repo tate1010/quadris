@@ -14,7 +14,7 @@ class Game{
     int level;
     int score;
     int hiscore;
-    int timer = -1 ; //used in level 4 only
+    int timer = 1 ; //used in level 4 only
 
 public:
     Game();

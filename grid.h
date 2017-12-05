@@ -17,7 +17,7 @@ public:
     Grid();
 
     void display();
-    bool Check();
+    int  Check();
     void setPiece(int r, int c, char piece);
     char getBlock(int r, int c);
     void unfill(int r, int c);

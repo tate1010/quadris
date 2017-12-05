@@ -86,7 +86,6 @@ void interpreter::call(std::string command, std::string arg){
         }
     }
 
-    std::cout << *livegame;
 
     if( command == "left"){
         livegame->left();

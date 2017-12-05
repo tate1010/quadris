@@ -93,6 +93,9 @@ void Game::GeneratePiece(){
 
     if (level == 4)  // can fix when drop fixes
     {
+
+
+
         if (timer == 5)
         {
             block b;
@@ -101,12 +104,17 @@ void Game::GeneratePiece(){
                 if (g->getBlock(i, 5) == 'e')
                 {
                     g->setPiece(i, 5, '*');
-                    timer = 0;
+                    timer = 1;
                     break;
                 }
             }
         }
         ++timer;
+        if (g->Check() != 0){
+          timer = 1 ;
+
+        }
+        
     }
 }
 
@@ -187,6 +195,12 @@ void Game::left(){
             }
         }
     }
+    if (level >= 3){
+
+    down();
+
+
+    }
 }
 
 void Game::right()
@@ -229,6 +243,13 @@ void Game::right()
                     g->setPiece(col.getRow(),col.getCol(),col.getType());
             }
         }
+    }
+
+    if (level >= 3){
+
+    down();
+
+
     }
 }
 bool Game::down(){
@@ -391,6 +412,13 @@ else {CurrentPiece -> rotate_counterclock();
 Putdown();
 
 }
+
+if (level >= 3){
+
+down();
+
+
+}
 }
 
 void Game::rotate_counterclock(){
@@ -417,6 +445,12 @@ CurrentPiece ->   rotate_clock();
 
 
 }
+if (level >= 3){
+
+down();
+
+
+}
 }
 void Game::drop(){
     bool wentDown = true;
@@ -424,7 +458,7 @@ void Game::drop(){
     while (wentDown)
         wentDown = down();
 
-    g->Check();
+    score += g->Check();
     CurrentPiece = new Opiece;
     NextPiece();
 }
@@ -567,6 +601,8 @@ void Game::setNextPiece(char pieceType){
 
 
 void Game::Clear(){
+
+
     g->clear(17);
 
 
