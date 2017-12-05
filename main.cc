@@ -58,7 +58,7 @@ int main(int argc, char *argv[]){
     //default
     unsigned seed = 1;
     string lvl = "0";
-    string fileName = "sequence.txt";
+    string fileName = "";
     bool scriptfile= false, haveseed=false, startlevel=false, usetext = false;
 
     interpreter run;
@@ -89,9 +89,12 @@ int main(int argc, char *argv[]){
         }
          */
     }
-
+    if (lvl == "0" && scriptfile == false){
+        run.call("sequence", fileName);
+    }
     if (startlevel){
         run.call("level", lvl);
+        run.call("print", "");
     }
     if (scriptfile){
         run.call("sequence", fileName);
@@ -100,7 +103,7 @@ int main(int argc, char *argv[]){
         srand(seed);
     //if (usetext)
     //run.call("print","");
-    run.call("print", "");
+
 
 
     insert("left");
