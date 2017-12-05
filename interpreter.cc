@@ -11,11 +11,11 @@ interpreter::interpreter(){
 
 }
 
+/*
 void interpreter::seed(int seed){
-
   srand(seed);
-
 }
+ */
 
 void interpreter::call(std::string command, std::string arg){
     if (command == "level"){
@@ -25,7 +25,7 @@ void interpreter::call(std::string command, std::string arg){
         stringToInt >> level;
         livegame->changeLevel(level);
     }
-    if( command == "sequence"){
+    else if( command == "sequence"){
         std::string sequenceFileName;
         if (arg != "")
             sequenceFileName = arg;
@@ -33,13 +33,6 @@ void interpreter::call(std::string command, std::string arg){
             std::cin >> sequenceFileName;
         //std::cout << "sequence file received: " << sequenceFileName << std::endl;
         std::ifstream sequenceFile (sequenceFileName);
-        /*
-         while (sequenceFile){
-         std::string member;
-         sequenceFile >> member;
-         std::cout << member << " ";
-         }
-         */
         std::string currentCommand;
         //sequenceFile.is_open() ? std::cout << "yes" : std::cout <<  "no";
         if (sequenceFile.is_open()) {
@@ -85,9 +78,8 @@ void interpreter::call(std::string command, std::string arg){
             }
         }
     }
-
-
-    if( command == "left"){
+    //std::cout << *livegame;
+    else if( command == "left"){
         livegame->left();
         std::cout << *livegame;
     }
@@ -129,11 +121,6 @@ void interpreter::call(std::string command, std::string arg){
         //todo
 
     }
-
-
-
-
-
     /*else if( command == "hint"){
 
 
@@ -179,14 +166,19 @@ void interpreter::call(std::string command, std::string arg){
     else if (command == "Z"){
         livegame->Z();
         std::cout << *livegame;
-
     }
     else if (command == "clear"){
         livegame->Clear();
         std::cout << *livegame;
     }
+<<<<<<< HEAD
     //else
         //std::cout << *livegame;
 
         livegame -> graphic();
+=======
+    else if (command == "print"){
+        std::cout << *livegame;
+    }
+>>>>>>> d9bbf9b29bbcc9dfee101afd36f9f98456da9e3c
 }

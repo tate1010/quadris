@@ -48,7 +48,7 @@ char Game::GetNext(){
 
 void Game::changeLevel(int i)
 {
-    std::cout << "hi im changeLevel, current level is " << i << std::endl;
+    //std::cout << "hi im changeLevel, current level is " << i << std::endl;
     level = i;
 }
 
@@ -136,19 +136,19 @@ void Game::leveldown(){
 
 bool Game::taken(){
 
-vector <vector <block>> layout = CurrentPiece->getlayout();
+    vector <vector <block>> layout = CurrentPiece->getlayout();
 
-for (auto &row : layout){
+    for (auto &row : layout){
 
-for (auto &col : row){
+        for (auto &col : row){
 
-if( g->getBlock(col.getCol(),col.getRow()) != 'e'){
-return true;
+            if( g->getBlock(col.getCol(),col.getRow()) != 'e'){
+                return true;
 
-}
-}
-}
-return false;
+            }
+        }
+    }
+    return false;
 }
 
 void Game::left(){
@@ -298,8 +298,8 @@ bool Game::down(){
 std::ostream& operator<<(std::ostream &out,  Game &game){
 
     int dividerlength = 11;
-    out << "level: " <<  game.level<< std::endl;
-    out << "score: " << game.score << std::endl;
+    out << "Level: " <<  game.level<< std::endl;
+    out << "Score: " << game.score << std::endl;
     out << "Hi Score: " << game.hiscore << std::endl;
     //divider here
     for(int divider= 1 ; divider <= dividerlength; ++divider){
@@ -359,13 +359,13 @@ std::ostream& operator<<(std::ostream &out,  Game &game){
 
 void Game::Pickup(){
 
-  for (auto &row: CurrentPiece->getlayout()){
-      for (auto &col : row){
-        if (col.getType() != 'e'){
-          g->unfill(col.getRow(),col.getCol());
-      }
+    for (auto &row: CurrentPiece->getlayout()){
+        for (auto &col : row){
+            if (col.getType() != 'e'){
+                g->unfill(col.getRow(),col.getCol());
+            }
+        }
     }
-  }
 
 
 
@@ -375,17 +375,17 @@ void Game::Putdown()
 {
 
 
-  for (auto &row: CurrentPiece->getlayout()){
-      for (auto &col : row){
-          if (col.getCol() < 0 || col.getCol() > 10 || col.getRow() < 0 || col.getRow()  > 17){
+    for (auto &row: CurrentPiece->getlayout()){
+        for (auto &col : row){
+            if (col.getCol() < 0 || col.getCol() > 10 || col.getRow() < 0 || col.getRow()  > 17){
 
-            throw ("get seg fault kid");
-          }
-          if (col.getType() != 'e'){
-          g->setPiece(col.getRow(),col.getCol(),col.getType());
-      }
+                throw ("get seg fault kid");
+            }
+            if (col.getType() != 'e'){
+                g->setPiece(col.getRow(),col.getCol(),col.getType());
+            }
+        }
     }
-  }
 }
 
 
@@ -457,8 +457,12 @@ void Game::drop(){
 
     while (wentDown)
         wentDown = down();
-    
+
+<<<<<<< HEAD
     score += g->Check();
+=======
+    g->Check();
+>>>>>>> d9bbf9b29bbcc9dfee101afd36f9f98456da9e3c
     CurrentPiece = new Opiece;
     NextPiece();
 }
