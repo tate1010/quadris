@@ -82,31 +82,37 @@ void interpreter::call(std::string command, std::string arg){
     else if( command == "left"){
         livegame->left();
         std::cout << *livegame;
+          livegame -> graphic();
     }
     else if( command == "right"){
         livegame->right();
         std::cout << *livegame;
+          livegame -> graphic();
 
     }
     else if( command == "down"){
         livegame->down();
         std::cout << *livegame;
+          livegame -> graphic();
 
     }
     else if (command == "drop"){
 
         livegame->drop();
         std::cout << *livegame;
+          livegame -> graphic();
     }
     else if( command == "clockwise"){
         livegame->rotate_clock();
         std::cout << *livegame;
+          livegame -> graphic();
 
     }
     else if( command == "counterclockwise"){
 
         livegame->rotate_counterclock();
         std::cout << *livegame;
+          livegame -> graphic();
     }
     else if( command == "levelup"){
         livegame->levelup();
@@ -136,49 +142,57 @@ void interpreter::call(std::string command, std::string arg){
     else if (command == "S"){
         livegame->S();
         std::cout << *livegame;
+          livegame -> graphic();
 
     }
     else if (command == "T"){
         livegame->T();
         std::cout << *livegame;
+          livegame -> graphic();
 
     }
     else if (command == "J"){
         livegame->J();
         std::cout << *livegame;
+          livegame -> graphic();
 
     }
     else if (command == "L"){
         livegame->L();
         std::cout << *livegame;
+          livegame -> graphic();
 
     }
     else if (command == "O"){
         livegame->O();
         std::cout << *livegame;
+          livegame -> graphic();
 
     }
     else if (command == "I"){
         livegame->I();
         std::cout << *livegame;
+          livegame -> graphic();
 
     }
     else if (command == "Z"){
         livegame->Z();
         std::cout << *livegame;
+          livegame -> graphic();
     }
     else if (command == "clear"){
         livegame->Clear();
         std::cout << *livegame;
+          livegame -> graphic();
     }
-<<<<<<< HEAD
+
     //else
         //std::cout << *livegame;
 
-        livegame -> graphic();
-=======
+
     else if (command == "print"){
         std::cout << *livegame;
+        livegame -> graphic();
     }
->>>>>>> d9bbf9b29bbcc9dfee101afd36f9f98456da9e3c
+
 }

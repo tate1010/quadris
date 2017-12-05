@@ -97,7 +97,7 @@ int Grid::Check(){
         if (!full) {
             something_cleared += clear(row);
             something_cleared += 3;
-            
+
         }
 
     }
@@ -137,20 +137,6 @@ std::vector<int>& Grid::Hitbox(){
     return hitbox;
 }
 
-std::vector<std::vector <char>>  Grid::layout(){
-  std::vector<std::vector <char>>   layout;
-for (auto &row : theGrid){
-std::vector<char> current;
-
-for (auto &col : row){
- current.push_back(col.getBlock());
-
-}
-layout.push_back(current);
-}
-
-return layout;
-}
 
 
 

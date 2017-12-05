@@ -28,7 +28,6 @@ public:
     std::vector<std::vector<char>> layout();
     std::vector<int>& Hitbox();
 
-    std::vector<std::vector <char>> layout();
 
     friend std::ostream &operator<<(std::ostream &out,  Grid &grd);
 };

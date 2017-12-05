@@ -458,11 +458,8 @@ void Game::drop(){
     while (wentDown)
         wentDown = down();
 
-<<<<<<< HEAD
     score += g->Check();
-=======
-    g->Check();
->>>>>>> d9bbf9b29bbcc9dfee101afd36f9f98456da9e3c
+
     CurrentPiece = new Opiece;
     NextPiece();
 }
