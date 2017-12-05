@@ -8,7 +8,7 @@
 #include "Jpiece.h"
 #include <iostream>
 Game::Game(){
-
+    
     g = new Grid();
     level = 1; //set at 1 for testing. please reset when needed
     score = 0;
@@ -16,11 +16,11 @@ Game::Game(){
     CurrentPiece = nullptr;
     GeneratePiece();
     NextPiece();
-
+    
 }
 
 void Game::NextPiece(){
-
+    
     if (nextPiece == 'I'){I();}
     else if (nextPiece == 'T'){T();}
     else if (nextPiece == 'O'){O();}
@@ -28,7 +28,7 @@ void Game::NextPiece(){
     else if (nextPiece == 'S'){S();}
     else if (nextPiece == 'J'){J();}
     else if (nextPiece == 'L'){L();}
-
+    
     GeneratePiece();
 }
 
@@ -38,15 +38,15 @@ char Game::GetNext(){
 
 void Game::changeLevel(int i)
 {
-    std::cout << "hi im changeLevel, current level is " << i << std::endl;
+    //std::cout << "hi im changeLevel, current level is " << i << std::endl;
     level = i;
 }
 
 void Game::GeneratePiece(){
     //level1
-
+    
     if (level == 1){
-
+        
         int RNG = rand()%12+1;
         if (RNG == 1) {nextPiece = 'S';}
         else if (RNG == 2){nextPiece = 'Z';}
@@ -58,7 +58,7 @@ void Game::GeneratePiece(){
         //
     }
     if (level ==2){
-
+        
         int RNG = rand()%7+1;
         if (RNG == 1){nextPiece = 'S';}
         else if (RNG == 2){nextPiece = 'Z';}
@@ -70,7 +70,7 @@ void Game::GeneratePiece(){
     }
     //
     if (level >=3){
-
+        
         int RNG = rand()%9+1;
         if (RNG == 1 || RNG == 8){nextPiece = 'S';}
         else if (RNG == 2 || RNG == 9){nextPiece = 'Z';}
@@ -80,7 +80,7 @@ void Game::GeneratePiece(){
         else if (RNG == 6){nextPiece = 'L';}
         else if (RNG == 7){nextPiece = 'J';}
     }
-
+    
     if (level == 4)  // can fix when drop fixes
     {
         if (timer == 5)
@@ -107,38 +107,38 @@ void Game::levelup(){
 }
 
 void Game::leveldown(){
-
+    
     if (level> 0){
-
+        
         --level;
     }
-
-
+    
+    
 }
 
 bool Game::taken(){
-
-vector <vector <block>> layout = CurrentPiece->getlayout();
-
-for (auto &row : layout){
-
-for (auto &col : row){
-
-if( g->getBlock(col.getCol(),col.getRow()) != 'e'){
-return true;
-
-}
-}
-}
-return false;
+    
+    vector <vector <block>> layout = CurrentPiece->getlayout();
+    
+    for (auto &row : layout){
+        
+        for (auto &col : row){
+            
+            if( g->getBlock(col.getCol(),col.getRow()) != 'e'){
+                return true;
+                
+            }
+        }
+    }
+    return false;
 }
 
 void Game::left(){
-
+    
     vector <vector <block>> layout = CurrentPiece->getlayout();
     int topLefRow = layout[0][0].getRow();
     int topLefCol = layout[0][0].getCol();
-
+    
     for (int i = 0; i < layout.size();i++)
     {
         for (int j = 0; j < layout[0].size();j++)
@@ -152,26 +152,26 @@ void Game::left(){
             }
         }
     }
-
-
+    
+    
     if (layout[0][0].getCol() > 0)
     {
-
+        
         for (auto &row: CurrentPiece->getlayout())
         {
             for (auto &col : row)
             {
                 if (col.getType() != 'e')
                     g->setPiece(col.getRow(),col.getCol(),'e');
-
+                
             }
         }
-
+        
         CurrentPiece -> move_left();
-
+        
         for (auto &row: CurrentPiece->getlayout()){
             for (auto &col : row){
-
+                
                 if (col.getType() != 'e')
                     g->setPiece(col.getRow(),col.getCol(),col.getType());
             }
@@ -183,10 +183,10 @@ void Game::right()
 {
     vector <vector <block>> layout = CurrentPiece->getlayout();
     int colsize = (int)layout[0].size();
-
+    
     int topLefRow = layout[0][0].getRow();
     int topLefCol = layout[0][0].getCol();
-
+    
     for (int i = (int)layout.size()-1; i >= 0; i--)
     {
         for (int j = colsize-1; j >= 0; j--)
@@ -200,7 +200,7 @@ void Game::right()
             }
         }
     }
-
+    
     if (layout[0][colsize-1].getCol() < 10)
     {
         for (auto &row: CurrentPiece->getlayout()){
@@ -209,12 +209,12 @@ void Game::right()
                     g->setPiece(col.getRow(),col.getCol(),'e');
             }
         }
-
+        
         CurrentPiece->move_right();
-
+        
         for (auto &row: CurrentPiece->getlayout()){
             for (auto &col : row){
-
+                
                 if (col.getType() != 'e')
                     g->setPiece(col.getRow(),col.getCol(),col.getType());
             }
@@ -222,11 +222,11 @@ void Game::right()
     }
 }
 bool Game::down(){
-
+    
     vector <vector <block>> layout = CurrentPiece->getlayout();
     int topLefRow = layout[0][0].getRow();
     int topLefCol = layout[0][0].getCol();
-
+    
     for (int j = 0; j < layout[0].size(); j++)
     {
         for (int i = (int)layout.size()-1; i >= 0; i--)
@@ -242,16 +242,16 @@ bool Game::down(){
             }
         }
     }
-
+    
     for (auto &row: CurrentPiece->getlayout()){
         for (auto &col : row){
             if (col.getType() != 'e')
                 g->setPiece(col.getRow(),col.getCol(),'e');
         }
     }
-
+    
     CurrentPiece -> softdrop();
-
+    
     for (auto &row: CurrentPiece->getlayout()){
         for (auto &col : row){
             if (col.getType() != 'e'){
@@ -260,15 +260,15 @@ bool Game::down(){
         }
     }
     return true;
-
+    
 }
 
 
 std::ostream& operator<<(std::ostream &out,  Game &game){
-
+    
     int dividerlength = 11;
-    out << "level: " <<  game.level<< std::endl;
-    out << "score: " << game.score << std::endl;
+    out << "Level: " <<  game.level<< std::endl;
+    out << "Score: " << game.score << std::endl;
     out << "Hi Score: " << game.hiscore << std::endl;
     //divider here
     for(int divider= 1 ; divider <= dividerlength; ++divider){
@@ -277,7 +277,7 @@ std::ostream& operator<<(std::ostream &out,  Game &game){
     out << std::endl;
     //grid here
     out << *(game.g);
-
+    
     //
     for(int divider= 1 ; divider <= dividerlength; ++divider){
         out << "-";
@@ -289,131 +289,131 @@ std::ostream& operator<<(std::ostream &out,  Game &game){
         out << "IIII" << std::endl;
     }
     else if (game.GetNext() == 'T'){
-
+        
         out << "TTT" << std::endl;
         out << " T " << std::endl;
     }
     else if (game.GetNext() == 'O'){
-
+        
         out << "OO" << std::endl;
         out << "OO" << std::endl;
     }
     else if (game.GetNext() == 'Z'){
-
+        
         out << "ZZ" << std::endl;
         out << " ZZ" << std::endl;
     }
     else if (game.GetNext() == 'S'){
-
-
+        
+        
         out << " SS" << std::endl;
         out << "SS" << std::endl;
     }
     else if (game.GetNext() == 'J'){
-
-
+        
+        
         out << "J" << std::endl;
         out << "JJJ" << std::endl;
     }
     else if (game.GetNext() == 'L'){
-
-
+        
+        
         out << "  L" << std::endl;
         out << "LLL" << std::endl;
     }
-
+    
     return out;
-
+    
 }
 
 void Game::Pickup(){
-
-  for (auto &row: CurrentPiece->getlayout()){
-      for (auto &col : row){
-        if (col.getType() != 'e'){
-          g->unfill(col.getRow(),col.getCol());
-      }
+    
+    for (auto &row: CurrentPiece->getlayout()){
+        for (auto &col : row){
+            if (col.getType() != 'e'){
+                g->unfill(col.getRow(),col.getCol());
+            }
+        }
     }
-  }
-
-
-
+    
+    
+    
 }
 
 void Game::Putdown()
 {
-
-
-  for (auto &row: CurrentPiece->getlayout()){
-      for (auto &col : row){
-          if (col.getCol() < 0 || col.getCol() > 10 || col.getRow() < 0 || col.getRow()  > 17){
-
-            throw ("get seg fault kid");
-          }
-          if (col.getType() != 'e'){
-          g->setPiece(col.getRow(),col.getCol(),col.getType());
-      }
+    
+    
+    for (auto &row: CurrentPiece->getlayout()){
+        for (auto &col : row){
+            if (col.getCol() < 0 || col.getCol() > 10 || col.getRow() < 0 || col.getRow()  > 17){
+                
+                throw ("get seg fault kid");
+            }
+            if (col.getType() != 'e'){
+                g->setPiece(col.getRow(),col.getCol(),col.getType());
+            }
+        }
     }
-  }
 }
 
 
 
 void Game::rotate_clock(){
-Pickup();
-
-CurrentPiece -> rotate_clock();
-
-if (!taken()){
-
-
-try{Putdown();}
-
-catch(...){
-
-//get seg fault kid
-CurrentPiece -> rotate_counterclock();
-Putdown();
-}
-}
-
-else {CurrentPiece -> rotate_counterclock();
-Putdown();
-
-}
+    Pickup();
+    
+    CurrentPiece -> rotate_clock();
+    
+    if (!taken()){
+        
+        
+        try{Putdown();}
+        
+        catch(...){
+            
+            //get seg fault kid
+            CurrentPiece -> rotate_counterclock();
+            Putdown();
+        }
+    }
+    
+    else {CurrentPiece -> rotate_counterclock();
+        Putdown();
+        
+    }
 }
 
 void Game::rotate_counterclock(){
-
-  Pickup();
-
-  CurrentPiece -> rotate_clock();
-
-  if (!taken()){
-
-
-  try{Putdown();}
-
-  catch(...){
-
-  //get seg fault kid
-CurrentPiece ->   rotate_clock();
-  Putdown();
-  }
-  }
-
-  else {CurrentPiece ->  rotate_clock();
-  Putdown();
-
-
-}
+    
+    Pickup();
+    
+    CurrentPiece -> rotate_clock();
+    
+    if (!taken()){
+        
+        
+        try{Putdown();}
+        
+        catch(...){
+            
+            //get seg fault kid
+            CurrentPiece ->   rotate_clock();
+            Putdown();
+        }
+    }
+    
+    else {CurrentPiece ->  rotate_clock();
+        Putdown();
+        
+        
+    }
 }
 void Game::drop(){
     bool wentDown = true;
-
+    
     while (wentDown)
         wentDown = down();
-
+    
     g->Check();
     CurrentPiece = new Opiece;
     NextPiece();
@@ -427,9 +427,9 @@ void Game::S(){
             }
         }
     }
-
+    
     CurrentPiece = new Spiece();
-
+    
     for (auto &row: CurrentPiece->getlayout()){
         for (auto &col : row){
             g->setPiece(col.getRow(),col.getCol(),col.getType());
@@ -445,17 +445,17 @@ void Game::T(){
             }
         }
     }
-
+    
     CurrentPiece = new Tpiece();
-
+    
     for (auto &row: CurrentPiece->getlayout()){
         for (auto &col : row){
-
+            
             g->setPiece(col.getRow(),col.getCol(),col.getType());
         }
     }
-
-
+    
+    
 }
 void Game::I(){
     if (CurrentPiece){
@@ -465,12 +465,12 @@ void Game::I(){
             }
         }
     }
-
+    
     CurrentPiece = new Ipiece();
-
+    
     for (auto &row: CurrentPiece->getlayout()){
         for (auto &col : row){
-
+            
             g->setPiece(col.getRow(),col.getCol(),col.getType());
         }
     }
@@ -484,12 +484,12 @@ void Game::L(){
             }
         }
     }
-
+    
     CurrentPiece = new Lpiece();
-
+    
     for (auto &row: CurrentPiece->getlayout()){
         for (auto &col : row){
-
+            
             g->setPiece(col.getRow(),col.getCol(),col.getType());
         }
     }
@@ -503,12 +503,12 @@ void Game::J(){
             }
         }
     }
-
+    
     CurrentPiece = new Jpiece();
-
+    
     for (auto &row: CurrentPiece->getlayout()){
         for (auto &col : row){
-
+            
             g->setPiece(col.getRow(),col.getCol(),col.getType());
         }
     }
@@ -522,9 +522,9 @@ void Game::O(){
             }
         }
     }
-
+    
     CurrentPiece = new Opiece();
-
+    
     for (auto &row: CurrentPiece->getlayout()){
         for (auto &col : row){
             g->setPiece(col.getRow(),col.getCol(),col.getType());
@@ -541,9 +541,9 @@ void Game::Z(){
             }
         }
     }
-
+    
     CurrentPiece = new Zpiece();
-
+    
     for (auto &row: CurrentPiece->getlayout()){
         for (auto &col : row){
             g->setPiece(col.getRow(),col.getCol(),col.getType());
@@ -558,6 +558,6 @@ void Game::setNextPiece(char pieceType){
 
 void Game::Clear(){
     g->clear(17);
-
-
+    
+    
 }
