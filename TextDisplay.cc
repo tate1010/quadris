@@ -25,8 +25,8 @@ void TextDisplay::setRC(int r, int c , char colour){
 
 std::ostream& operator<<(std::ostream &out, const TextDisplay&td){
     int dividerlength = 11;
-    out << "level" << std::endl;
-    out << "score" << std::endl;
+    out << "Level" << std::endl;
+    out << "Score" << std::endl;
     out << "Hi Score:" << std::endl;
     //divider here
     for(int divider= 1 ; divider <= dividerlength; ++divider){

@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <ctype.h>
+#include <string>
 #include "interpreter.h"
 #include "block.h"
 #include "piece.h"
@@ -56,17 +57,18 @@ int main(int argc, char *argv[]){
     
     if (argc > 1) {
         for (int i=1; i<argc; i++){
-            if (argv[i] == "-scriptfile"){
-                run.call("sequence",argv[i+1]);
+            string commandArg = argv[i];
+            if (commandArg == "-scriptfile"){
+                run.call("sequence", argv[i+1]);
                 i++;
             }
-            else if (argv[i] == "-seed"){
+            else if (commandArg == "-seed"){
                 //pass ("seed",argv[i+1]);
                 i++;
             }
-            else if (argv[i] == "-startlevel"){
-                cout<<"here"<<endl;
-                run.call("level",argv[i+1]);
+            else if (commandArg == "-startlevel"){
+                //cout<<"here"<<endl;
+                run.call("level", argv[i+1]);
                 i++;
             }
             //else if (strcmp(argv[i],"-text") == 0){
