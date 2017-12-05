@@ -23,7 +23,9 @@ Game::Game(){
 
       level0block.open("sequence.txt");
       Level0();
+
     }
+
     else {
 
 
@@ -64,6 +66,9 @@ void Game::changeLevel(int i)
 {
     //std::cout << "hi im changeLevel, current level is " << i << std::endl;
     level = i;
+
+        GeneratePiece();
+        NextPiece();
 }
 
 void Game::GeneratePiece(){

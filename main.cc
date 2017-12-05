@@ -101,8 +101,9 @@ int main(int argc, char *argv[]){
     if (scriptfile){
         run.call("sequence", fileName);
     }
-    if (haveseed)
-        srand(seed);
+    if (haveseed)      srand(seed);
+
+
     //if (usetext)
     //run.call("print","");
 
@@ -134,6 +135,7 @@ int main(int argc, char *argv[]){
 
     //cout << trie_search(root, "lef");
     string command;
+    run.call("print", "");
     while (cin >> command){
         int letter = 0;
         while (isdigit(command[letter])){
