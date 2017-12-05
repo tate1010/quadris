@@ -14,7 +14,7 @@ class Game{
     int score;
     int hiscore;
     int timer = -1 ; //used in level 4 only
-    
+
 public:
     Game();
 
@@ -42,7 +42,7 @@ public:
     //void Hint
     void Pickup();
     void Putdown();
-    bool CockBlock();
+    bool taken();
 
 
     //for testing here

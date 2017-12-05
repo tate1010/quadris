@@ -116,7 +116,7 @@ void Game::leveldown(){
 
 }
 
-bool Game::CockBlock(){
+bool Game::taken(){
 
 vector <vector <block>> layout = CurrentPiece->getlayout();
 
@@ -330,9 +330,10 @@ void Game::Pickup(){
 
   for (auto &row: CurrentPiece->getlayout()){
       for (auto &col : row){
-
+        if (col.getType() != 'e'){
           g->unfill(col.getRow(),col.getCol());
       }
+    }
   }
 
 
@@ -349,9 +350,10 @@ void Game::Putdown()
 
             throw ("get seg fault kid");
           }
-
+          if (col.getType() != 'e'){
           g->setPiece(col.getRow(),col.getCol(),col.getType());
       }
+    }
   }
 }
 
@@ -362,7 +364,7 @@ Pickup();
 
 CurrentPiece -> rotate_clock();
 
-if (!CockBlock()){
+if (!taken()){
 
 
 try{Putdown();}
@@ -370,12 +372,12 @@ try{Putdown();}
 catch(...){
 
 //get seg fault kid
-rotate_counterclock();
+CurrentPiece -> rotate_counterclock();
 Putdown();
 }
 }
 
-else {rotate_counterclock();
+else {CurrentPiece -> rotate_counterclock();
 Putdown();
 
 }
@@ -387,7 +389,7 @@ void Game::rotate_counterclock(){
 
   CurrentPiece -> rotate_clock();
 
-  if (!CockBlock()){
+  if (!taken()){
 
 
   try{Putdown();}
@@ -395,12 +397,12 @@ void Game::rotate_counterclock(){
   catch(...){
 
   //get seg fault kid
-  rotate_clock();
+CurrentPiece ->   rotate_clock();
   Putdown();
   }
   }
 
-  else {rotate_clock();
+  else {CurrentPiece ->  rotate_clock();
   Putdown();
 
 
