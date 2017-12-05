@@ -21,10 +21,12 @@ Game::Game(){
       std::cout << "starting at level 0";
 
 
-      level0block.open("level0.txt");
-          Level0();
+      level0block.open("sequence.txt");
+      Level0();
     }
     else {
+
+
     GeneratePiece();
     NextPiece();
 }
@@ -479,6 +481,7 @@ void Game::drop(){
   else
   Level0();
 }
+
 void Game::Level0(){
 
 
@@ -500,6 +503,8 @@ void Game::Level0(){
 
 
 }
+
+
 
 void Game::S(){
     if (CurrentPiece){

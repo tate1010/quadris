@@ -89,9 +89,11 @@ int main(int argc, char *argv[]){
         }
          */
     }
+    /*
     if (lvl == "0" && scriptfile == false){
-        run.call("sequence", fileName);
-    }
+           run.call("sequence", fileName);
+     }
+*/
     if (startlevel){
         run.call("level", lvl);
         run.call("print", "");
@@ -116,7 +118,6 @@ int main(int argc, char *argv[]){
     insert("drop");
     insert("norandom");
     insert("random");
-
     insert("sequence");
     insert("restart");
     insert("hint");
