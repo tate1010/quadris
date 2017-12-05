@@ -24,7 +24,7 @@ vector <std::string> library;
 
 
 bool isPrefix(std::string str, std::string pre) {
-
+    
     // this function checks if pre is a prefix of str
     auto res = std::mismatch(pre.begin(), pre.end(), str.begin());
     return res.first == pre.end();
@@ -32,7 +32,7 @@ bool isPrefix(std::string str, std::string pre) {
 
 void insert(string word){
     library.push_back(word);
-
+    
 }
 
 string search(string search){
@@ -46,10 +46,10 @@ string search(string search){
             else key = "ambigous";
         }
     }
-
-
+    
+    
     return key;
-
+    
 }
 
 
@@ -60,10 +60,10 @@ int main(int argc, char *argv[]){
     string lvl = "0";
     string fileName = "";
     bool scriptfile= false, haveseed=false, startlevel=false, usetext = false;
-
+    
     interpreter run;
-
-
+    
+    
     for (int i=1; i<argc; i++){
         string commandArg = argv[i];
         if (commandArg == "-scriptfile"){
@@ -89,8 +89,12 @@ int main(int argc, char *argv[]){
         }
          */
     }
+    if (lvl == "0" && scriptfile == false){
+        run.call("sequence", fileName);
+    }
     if (startlevel){
         run.call("level", lvl);
+        run.call("print", "");
     }
     if (scriptfile){
         run.call("sequence", fileName);
@@ -99,9 +103,9 @@ int main(int argc, char *argv[]){
         srand(seed);
     //if (usetext)
     //run.call("print","");
-    run.call("print", "");
-
-
+    
+    
+    
     insert("left");
     insert("right");
     insert("clockwise");
@@ -112,7 +116,7 @@ int main(int argc, char *argv[]){
     insert("drop");
     insert("norandom");
     insert("random");
-
+    
     insert("sequence");
     insert("restart");
     insert("hint");
@@ -125,8 +129,8 @@ int main(int argc, char *argv[]){
     insert("T");
     insert("clear");
     //
-
-
+    
+    
     //cout << trie_search(root, "lef");
     string command;
     while (cin >> command){
@@ -134,27 +138,27 @@ int main(int argc, char *argv[]){
         while (isdigit(command[letter])){
             ++letter;
         }
-
+        
         string mul(command.begin(), command.begin()+letter);
         string interp(command.begin()+letter,command.end());
-
-
+        
+        
         interp = search(interp);
-
-
+        
+        
         if (interp == "restart" || interp == "hint" || interp == "norandom" || interp == "random"){
             run.call(interp, "");
         }
         else if(mul == ""){
             run.call(interp, "");
-
-
+            
+            
         }
         else{
             for (int i = 0 ; i < stoi(mul) ; ++i){
                 //do more shit
                 run.call(interp, "");
-
+                
             }
         }
     }
