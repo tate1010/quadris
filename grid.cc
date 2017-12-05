@@ -48,7 +48,7 @@ char Grid::getBlock(int r, int c){
 }
 void Grid::unfill(int r, int c){
 
-theGrid[r][c].setPiece('e');
+theGrid[r][c].setPiece('e',0);
 theGrid[r][c].unfill();
 
 
@@ -57,14 +57,16 @@ theGrid[r][c].unfill();
 }
 
 
-void Grid::clear(int line){
-
+int Grid::clear(int line){
+    int value = 0;
     for (int i = line; i > 0; --i){
 
         for (int col = 0; col < 11; ++col){
-            theGrid[i][col].setPiece(theGrid[i-1][col].getBlock());
+            theGrid[i][col].setPiece(theGrid[i-1][col].getBlock(),0);
+            value += theGrid[i][col].getLevel();
 
             if (!theGrid[i-1][col].Filled()){
+
                 theGrid[i][col].unfill();
 
             }
@@ -77,6 +79,8 @@ void Grid::clear(int line){
 
 
     }
+
+    return value;
 }
 
 // -------PLEASE CHECK AGAIN WHAT YOU DID HERE PLEASE TATE-----------
@@ -91,8 +95,9 @@ int Grid::Check(){
         }
 
         if (!full) {
-            clear(row);
-            something_cleared = true;
+            something_cleared += clear(row);
+            something_cleared += 3;
+            
         }
 
     }
@@ -110,6 +115,17 @@ void Grid::setPiece(int r, int c, char piece){
     }
 
 }
+void Grid::setPiece(int r, int c, char piece, int level){
+
+
+    theGrid[r][c].setPiece(piece,level);
+
+    if(piece == 'e'){
+        theGrid[r][c].unfill();
+    }
+
+}
+
 
 void Grid::display(){
 

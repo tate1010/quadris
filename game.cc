@@ -114,7 +114,7 @@ void Game::GeneratePiece(){
           timer = 1 ;
 
         }
-        
+
     }
 }
 
@@ -457,7 +457,7 @@ void Game::drop(){
 
     while (wentDown)
         wentDown = down();
-
+    
     score += g->Check();
     CurrentPiece = new Opiece;
     NextPiece();

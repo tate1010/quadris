@@ -18,10 +18,11 @@ public:
 
     void display();
     int  Check();
-    void setPiece(int r, int c, char piece);
+    void  setPiece(int r, int c, char piece, int level);
+    void setPiece(int r, int c , char piece );
     char getBlock(int r, int c);
     void unfill(int r, int c);
-    void clear(int line ); //CLEAR THE LINE Count FRom the top
+    int clear(int line ); //CLEAR THE LINE Count FRom the top
     //line start from 0 to 15 (+3)
     //
     std::vector<std::vector<char>> layout();
