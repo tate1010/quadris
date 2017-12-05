@@ -7,18 +7,30 @@
 #include "Spiece.h"
 #include "Jpiece.h"
 #include <iostream>
+#include <fstream>
 Game::Game(){
 
     g = new Grid();
     GD = new GraphicsDisplay(20,500);
-    level = 1; //set at 1 for testing. please reset when needed
+    level = 0; //set at 1 for testing. please reset when needed
     score = 0;
     hiscore = 0;
     CurrentPiece = nullptr;
+
+    if (level == 0){
+      std::cout << "starting at level 0";
+
+
+      level0block.open("level0.txt");
+          Level0();
+    }
+    else {
     GeneratePiece();
     NextPiece();
-
 }
+}
+
+
 
 
 void Game::graphic(){
@@ -286,7 +298,7 @@ bool Game::down(){
     for (auto &row: CurrentPiece->getlayout()){
         for (auto &col : row){
             if (col.getType() != 'e'){
-                g->setPiece(col.getRow(),col.getCol(),col.getType());
+                g->setPiece(col.getRow(),col.getCol(),col.getType(),level);
             }
         }
     }
@@ -382,7 +394,7 @@ void Game::Putdown()
                 throw ("get seg fault kid");
             }
             if (col.getType() != 'e'){
-                g->setPiece(col.getRow(),col.getCol(),col.getType());
+                g->setPiece(col.getRow(),col.getCol(),col.getType(),level);
             }
         }
     }
@@ -461,7 +473,32 @@ void Game::drop(){
     score += g->Check();
 
     CurrentPiece = new Opiece;
+    if (level != 0){
     NextPiece();
+  }
+  else
+  Level0();
+}
+void Game::Level0(){
+
+
+  char block;
+
+      level0block >> block;
+
+
+            if (block == 'I'){I();}
+            else if (block == 'T'){T();}
+            else if (block == 'O'){O();}
+            else if (block == 'Z'){Z();}
+            else if (block == 'S'){S();}
+            else if (block == 'J'){J();}
+            else if (block == 'L'){L();}
+
+
+
+
+
 }
 
 void Game::S(){

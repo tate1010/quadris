@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <cstddef>
+#include <fstream>
 #include "grid.h"
 #include "piece.h"
 #include "graphicsdisplay.h"
@@ -15,6 +16,8 @@ class Game{
     int score;
     int hiscore;
     int timer = 1 ; //used in level 4 only
+      std::ifstream level0block;
+
 
 public:
     Game();
@@ -33,7 +36,7 @@ public:
     void sequence(std::string sequenceFileName);
     void changeLevel(int i);
     void graphic();
-
+    void Level0();
      //replace current with next Piece
     //ToDO
     //void rotate_clock();

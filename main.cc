@@ -58,7 +58,7 @@ int main(int argc, char *argv[]){
     //default
     unsigned seed = 1;
     string lvl = "0";
-    string fileName = "";
+    string fileName = "sequence.txt";
     bool scriptfile= false, haveseed=false, startlevel=false, usetext = false;
 
     interpreter run;
@@ -89,6 +89,7 @@ int main(int argc, char *argv[]){
         }
          */
     }
+
     if (startlevel){
         run.call("level", lvl);
     }
