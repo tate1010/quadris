@@ -14,7 +14,7 @@ class Game{
     int score;
     int hiscore;
     int timer = -1 ; //used in level 4 only
-    long long seed = 0;
+    
 public:
     Game();
 

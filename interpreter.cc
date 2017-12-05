@@ -6,9 +6,15 @@
 #include <sstream>
 
 interpreter::interpreter(){
-    
+
     livegame = new Game();
-    
+
+}
+
+void interpreter::seed(int seed){
+
+  srand(seed);
+
 }
 
 void interpreter::call(std::string command, std::string arg){
@@ -37,9 +43,9 @@ void interpreter::call(std::string command, std::string arg){
         std::string currentCommand;
         //sequenceFile.is_open() ? std::cout << "yes" : std::cout <<  "no";
         if (sequenceFile.is_open()) {
-            
+
             while (sequenceFile >> currentCommand) {
-                
+
                 if (currentCommand == "left")
                     livegame->left();
                 else if (currentCommand == "right")
@@ -61,7 +67,7 @@ void interpreter::call(std::string command, std::string arg){
                     sequenceFile >> fileName;
                     call("sequence", fileName);
                 }
-                // the block cases
+                              // the block cases
                 else if (currentCommand == "I")
                     livegame->I();
                 else if (currentCommand == "T")
@@ -79,9 +85,9 @@ void interpreter::call(std::string command, std::string arg){
             }
         }
     }
-    
+
     std::cout << *livegame;
-    
+
     if( command == "left"){
         livegame->left();
         std::cout << *livegame;
@@ -89,92 +95,92 @@ void interpreter::call(std::string command, std::string arg){
     else if( command == "right"){
         livegame->right();
         std::cout << *livegame;
-        
+
     }
     else if( command == "down"){
         livegame->down();
         std::cout << *livegame;
-        
+
     }
     else if (command == "drop"){
-        
+
         livegame->drop();
         std::cout << *livegame;
     }
     else if( command == "clockwise"){
         livegame->rotate_clock();
         std::cout << *livegame;
-        
+
     }
     else if( command == "counterclockwise"){
-        
+
         livegame->rotate_counterclock();
         std::cout << *livegame;
     }
     else if( command == "levelup"){
         livegame->levelup();
-        
+
     }
     else if( command == "leveldown"){
-        
+
         livegame->leveldown();
-        
+
     }
     else if( command == "restart"){
         //todo
-        
+
     }
-    
-    
-    
-    
-    
+
+
+
+
+
     /*else if( command == "hint"){
-     
-     
+
+
      }
      else if( command == "random"){
-     
-     
+
+
      }
      else if (command == "norandom"){
-     
-     
+
+
      }*/
     else if (command == "S"){
         livegame->S();
         std::cout << *livegame;
-        
+
     }
     else if (command == "T"){
         livegame->T();
         std::cout << *livegame;
-        
+
     }
     else if (command == "J"){
         livegame->J();
         std::cout << *livegame;
-        
+
     }
     else if (command == "L"){
         livegame->L();
         std::cout << *livegame;
-        
+
     }
     else if (command == "O"){
         livegame->O();
         std::cout << *livegame;
-        
+
     }
     else if (command == "I"){
         livegame->I();
         std::cout << *livegame;
-        
+
     }
     else if (command == "Z"){
         livegame->Z();
         std::cout << *livegame;
-        
+
     }
     else if (command == "clear"){
         livegame->Clear();
@@ -183,4 +189,3 @@ void interpreter::call(std::string command, std::string arg){
     //else
         //std::cout << *livegame;
 }
-

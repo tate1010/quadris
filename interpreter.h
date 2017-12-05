@@ -10,6 +10,7 @@ class interpreter{
     //GraphicDisplay
 public:
     interpreter();
+    void seed (int seed );
     void left();
     void right();
     void down();
