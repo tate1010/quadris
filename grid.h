@@ -6,15 +6,26 @@
 #include "TextDisplay.h"
 
 class Grid{
-  std::vector<std::vector<char>> theGrid;
-  TextDisplay *td = nullptr;
-  bool textonlydisplay = true;
-  //to  do
-  //GraphicDisplay
+    std::vector<std::vector<Cell>> theGrid;
+    TextDisplay *td = nullptr;
+    bool textonlydisplay = true;
+    std::vector<int> hitbox;
+
+    //to  do
+    //GraphicDisplay
 public:
-   Grid();
+    Grid();
 
-   void display();
-
+    void display();
+    bool Check();
+    void setPiece(int r, int c, char piece);
+    char getBlock(int r, int c);
+    void unfill(int r, int c);
+    void clear(int line ); //CLEAR THE LINE Count FRom the top
+    //line start from 0 to 15 (+3)
+    //
+    std::vector<std::vector<char>> layout();
+    std::vector<int>& Hitbox();
+    friend std::ostream &operator<<(std::ostream &out,  Grid &grd);
 };
 #endif
